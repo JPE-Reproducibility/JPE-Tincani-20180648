@@ -1,0 +1,3 @@
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20180648-1/replication-package/Replication_Package_Tincani-20180648/Manuscript_Replication_Package_Tincani-20180648.pdf
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20180648-1/replication-package/Replication_Package_Tincani-20180648/README.pdf
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20180648-1/replication-package/Replication_Package_Tincani-20180648/README.md

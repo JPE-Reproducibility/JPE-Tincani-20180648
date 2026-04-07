@@ -1,6 +1,12 @@
-title: "Stand-in title"
-author: "Dr Prof James 'JayJay' Author"
-paper_id: 12345678
+title: "Peer Effects and Rank Concerns in the Classroom"
+author: "Tincani"
 round: 1
-repo: "https://www.github.com/standin"
-dropbox_rel_path: "JPE/Author-12345678/1"
+repo: "https://github.com/JPE-Reproducibility/JPE-Tincani-20180648"
+paper_id: 20180648
+journal: "JPE"
+paper_slug: "Tincani-20180648"
+# dropbox_download_url set as GitHub Actions secret DROPBOX_DOWNLOAD_URL
+dropbox_rel_path: "JPE/Tincani-20180648/1"
+package_size_gb: 1.25
+package_max_file_size_gb: 2
+package_max_pkg_size_gb: 10

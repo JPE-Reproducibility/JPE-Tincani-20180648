@@ -1,0 +1,33 @@
+.-
+help for ^rmiss2^                                            (STB-26: dm31)
+.-
+
+Extension to the ^egen^ function ^rmiss()^
+--------------------------------------
+
+         ^egen^ varname ^= rmiss2(^varlist^)^ [^if^ exp] [^in^ range]
+
+
+Description
+-----------
+
+^rmiss2()^ counts the number of missing values in the varlist.  ^rmiss2()^ accepts
+both string and numeric variables.  Stata's ^rmiss()^ accepts only numeric
+variables.
+
+
+Author
+------
+
+        Richard Goldstein
+        Qualitas, Inc.
+        richgold@@netcom.com
+
+
+Also see
+--------
+
+    STB:  STB-26 dm31
+ Manual:  [5d] egen
+On-line:  help for @egen@
+

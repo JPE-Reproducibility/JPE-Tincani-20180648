@@ -1,0 +1,176 @@
+\section{Data and Measurements}\label{sec:data_and_measurements}
+This section describes the data sources and measurements and performs a descriptive data analysis.
+\subsection{Data}\label{sec:data}
+I construct a dataset on two cohorts of students combining information from the SIMCE datasets  ({\itshape Sistema de Medici\'{o}n de la Calidad de la Educaci\'{o}n}, \cite{agencia_simce_scores}) and enrollment and grade registries ({\itshape Rendimiento} and {\itshape Matr\'{i}cula}, \cite{mineduc_rendimiento_2005_2010,mineduc_matricula_2009}). I refer to the two cohorts as pre- and post-earthquake cohorts, depending on whether their outcomes were measured before or after the earthquake. The $8^{th}$ grade outcome for the pre-earthquake cohort is observed in 2009, before the 2010 earthquake, the $8^{th}$ grade outcome for the post-earthquake cohort is observed in 2011, 20 to 22 months after the 2010 earthquake (Figure ~\ref{data_timeline}). The sample includes students in public and private subsidized schools.\footnote{I exclude students from the elite private unsubsidized schools. They represent approximately $7\%$ of the student population and they come from the most well-off families in the country.} I obtained from the Ministry of Education the list of schools that closed as a consequence of the earthquake, and used registry data to identify the schools where the evacuated students relocated to (\cite{tincani_school_closures}). I dropped from the sample both sets of schools, from both cohorts, to ensure the absence of earthquake-induced relocations in my sample.\footnote{I dropped $36,941$ observations from the post-earthquake cohort and $38,784$ from the pre-earthquake cohort, corresponding to $13\%$ of the sample.} Such relocations could directly affect the outcomes of evacuated students and indirectly those of incumbent students in receiving schools through changes in peer composition. Such effects could confound the effects of interest in this paper. I dropped observations with missing classroom identifiers,\footnote{These are $17,944$ observations in the post-earthquake cohort and $21,194$ observations in the pre-earthquake cohort. The school and student identifiers are never missing.} and classrooms with five or fewer students.\footnote{These correspond to $2,484$ student-level observations, or $0.7$ percent of the sample.} The full constructed dataset consists of $354,133$ students in $13,268$ classrooms across $8,974$ schools. The main estimation sample is restricted to students living in regions affected by the earthquake; students living in non-affected regions are used only for testing the identifying assumption. As explained in the next section, to mitigate measurement error in the damage measure the main analyses exclude around 15\% of observations, corresponding to schools located in coastal towns. Table \ref{summaryprepost} reports the sizes of the pre- and post-earthquake cohorts under each restriction.   \par  
+
+ For both cohorts I observe administrative records on $8^{th}$ grade and $4^{th}$ grade Mathematics and Language standardized test scores and school grades, gender, town of residence and unique student, classroom and school identifiers. I complement these data with linked survey data on students' perceptions (\cite{agencia_simce_student_questionnaire}), and on the household socioeconomic background (\cite{agencia_simce_parent_questionnaire}). Administrative school-level information includes rurality and public or private status. I complement this information with teacher surveys on curriculum coverage (\cite{agencia_simce_teacher_questionnaire}) and, for a subset of schools, with detailed reports on school expenditures (\cite{mineduc_sep_expenditure}). Finally, I match students to classrooms, teachers and schools through unique pseudo-identifiers.
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[x=1.5cm]
+		\draw[black,->,thick,>=latex]
+		(0,0) -- (5,0) node[below right] {$\scriptstyle t$};
+		
+		
+		\draw[black,thick]
+		(1,0) -- ++(0,5pt) node[above] {$\scriptstyle 2005$}
+		(2,0) -- ++(0,5pt) node[above] {$\scriptstyle 2007$}
+		(3,0) -- ++(0,5pt) node[above] {$\scriptstyle 2009$}
+		(3.5,0) -- ++(0,5pt) node[above,color=myred] {$\scriptstyle 2010$}
+		(4,0) -- ++(0,5pt) node[above] {$\scriptstyle 2011$};
+		
+		%Annotations
+		\node[above right, color= myred] at (3,15pt) {\tiny Earthquake};
+		\node[below, color=mygreen] at (2,-10pt) {\tiny {\bf Cohort PRE}};
+		\node[above, color=mygreen] at (3,-35pt) {\tiny {\bf Cohort POST}};
+		
+		\draw[mygreen, ->,>=latex] (1,0) -- (1,-10pt) -- (3,-10pt) -- (3,0pt) ;
+		
+		\draw[mygreen, ->, >=latex] (2,-20pt) -- (2,-35pt) -- (4,-35pt) -- (4,0pt) ;
+		
+	\end{tikzpicture}
+	\caption{Data time-line.\label{data_timeline}}
+\end{figure}
+
+\subsection{Measuring damages to homes } \label{sec:measure_damages_to_homes}
+
+\paragraph{Earthquake.} On February $27^{th}$ 2010, at 3.34 am local time, Chile was struck by a magnitude 8.8 earthquake, the seventh-largest ever instrumentally recorded and technically referred to as a mega-earthquake (\cite{astroza2012}, \cite{USGSCatalog2025}). Figure \ref{fig:earthquake_distribution} shows its position in the global earthquake distribution since 1900. Shaking was felt strongly throughout 500 km along the country, covering six regions that together make up approximately $80\%$ of the country's population. Damage was widespread, with costs estimated at 18 percent of GDP (\cite{oms2010terremoto}). The Government implemented a national plan to rebuild or repair housing units for low- and middle-income families. The mega-earthquake had continued impact on people's lives during the period covered by my sample. The post-earthquake cohort, whose outcomes were collected when they were in the $8^{th}$ grade in 2011, was about to start the $7^{th}$ grade when the earthquake struck. By the time the 2011 outcome data were collected, 20-22 months had passed since the earthquake struck. Yet, only 24 percent of home reconstructions and repairs had been completed (\cite{comerio2013housing}), leading to frustration in the population (Appendix Figure ~\ref{fig:dios}). 
+
+
+
+
+\begin{figure}[h!] 
+ 	\centering
+ 	\includegraphics[scale=0.65]{output/figures/earthquake_distribution.png}
+ 	\caption{{\itshape Source}: Global Earthquake Catalog maintained by the United States Geological Survey (\cite{usgs_earthquake_catalog}). }
+ 	\label{fig:earthquake_distribution}
+ \end{figure}
+
+
+
+
+
+
+
+\paragraph{Measuring earthquake damage to a student's home.} The damage to a student's home depends on the level of ground shaking and on the construction materials. I proceed in three steps. First, I construct a measure of the shaking that each student's home was subject to. Second, I build a measure of the seismic vulnerability of each student's home, which depends on the construction materials. Third, I combine these two measures to calculate home damages. I now describe each step.\par  
+
+ \paragraph{Step one: ground shaking.} For students who reside in earthquake-afflicted regions, I build a measure of distance between each student's town of residence and the asperity centroid as $\Delta_A=\sqrt{R^2+h^2}$, where $R$ is the distance between the town's center and the point on the earth's surface vertically above the asperity centroid, whose coordinates are ($34.8^{o}$S, $72.6^{o}$W), and $h=20$km is the depth of the latter (the town-level distances $R$ are from \cite{tincani_distance_measures}). I then apply the intensity attenuation formula derived by \cite{astroza2012} for the 2010 Chilean earthquake that gives for each distance $\Delta_A$ a level of severity of ground shaking, $I$, measured on the Medvedev-Sponheuer-Karnik (MSK) scale: $I=19.781-5.927\log_{10}(\Delta_A)+0.00089\Delta_A$ ($R^2=0.9894$).\footnote{$\Delta_A$ is non-negative because it measures a distance, and it is never equal to zero because no town was directly above the asperity, which was in the ocean. The reported $R^2$ refers to the reported regression with MSK-Intensity as outcome variable. }\par 
+ 
+
+\paragraph{Step two: seismic vulnerability.} A building's seismic vulnerability depends on its construction materials. The construction materials of students' homes are not included in the education dataset, but they are included in census data. Therefore, I use census data to develop a model that can accurately predict the seismic vulnerability of a household's home from a set of observable household characteristics that are available in the education dataset, and I apply this model to the education dataset to build a measure of the seismic vulnerability of the homes of the students in my sample. The procedure comprises three steps. In the first, using census data I build a measure of seismic vulnerability of a building based on its construction materials. In the second, using census data I develop the prediction model and assess its ability to correctly predict housing quality from household characteristics. Finally, I apply the prediction model to the students in my sample (the education data). I now describe the first two steps in more detail (the third step is trivial).  \par 
+
+
+ 
+
+The first step consists in building a measure of seismic vulnerability of a home from information on its building materials as per census data. I obtained the 2002 census data, the last one before the earthquake struck, from the Chilean National Institute for Statistics (\cite{ine_censo_2002}). I restricted the data to the nearly one million households with at least one school-aged child, and extracted information on the construction materials of their homes: for the exterior walls, roof and floor. Table \ref{distrib_materials} in the Appendix shows the distribution of building materials in this population.\par 
+ I then mapped the vector of building materials into a predicted seismic vulnerability class (\cite{grunthal1998european}, Table 1). To do so, I estimated a logistic latent-class-analysis (LCA) model that assigns to each home the predicted probabilities of belonging to each of three classes, an unsupervised learning algorithm. Post-estimation, I predicted the distribution of building materials by class. As an unsupervised algorithm, LCA does not label the classes, a step requiring human input. I attached a label to each class (low, medium or high seismic vulnerability) depending on the similarity between the predominant construction materials within each class generated by the LCA model and the predominant construction materials used in Chile within each seismic vulnerability class \citep{massoneintensidades}. In this step of the data construction, I obtained feedback from a leading expert on the seismic vulnerability of Chilean buildings.\footnote{I thank Professor Sergio Ruiz of the Geology Department at the University of Chile for his expert feedback on this step of the data construction, confirming that the distribution of building materials within the classes generated by the algorithm correspond to that found within the seismic vulnerability classes in Chile.}\footnote{\cite{astroza2012} identify four seismic vulnerability classes in Chile, but two of them (confined masonry and confined masonry designed according to the NCh2123 Chilean Code) are indistinguishable from each other using census information. Therefore, I group them into one class. These two types of constructions have the best earthquake resistance profiles (see Table 2 in \cite{astroza2012}), so they are assigned to the low vulnerability class. But in calculating damages, I acknowledge that this class contains two different kinds of constructions: I assume that half of these homes are built according to the NCh2123 Chilean Code, and half are not.} Figure \ref{fig:vc} shows the predicted class proportions in the population of households with at least one school-aged child in the census and the within-class distributions of construction materials.
+ 
+ \begin{figure}[h!] 
+ 	\centering
+ 	\includegraphics[scale=1.3]{output/figures/donut.png} %0.7
+ 	\caption{Results of the latent-class-analysis model estimated on census data: distribution of seismic vulnerability classes and of building materials within each class (N=929,647). {\itshape Notes}: The percentages next to each class label represent the proportion of homes in that class in the population of households with at least one school-aged child in the 2002 census.}
+ 	\label{fig:vc}
+ \end{figure}
+
+ The second step consists in building a model that can accurately predict the seismic vulnerability of a household's home based on household characteristics, in the population of families with school-aged children. The dependent variable is seismic vulnerability as obtained from the LCA model, that is, a vector containing the probabilities that a home belongs to the low-, medium- or high-vulnerability class. For the independent variables, I restrict attention to the characteristics that are available in both the census and the education data. These are: the age of the household head, the average years of education of mothers and fathers, and the region of residence, to capture any differences in construction standards across regions.\footnote{I assume that the parent who fills out the education questionnaire is the household head.} \par 
+  Predicting seismic vulnerability from household characteristics is remarkably easy in Chile, as I find striking socioeconomic stratification in housing quality among Chilean families with school-aged children. As shown in Figure \ref{fig:vc_by_peduc}, students from high socioeconomic status (SES) households are those most likely to live in homes with low seismic vulnerability, students from middle SES households in homes with medium seismic vulnerability, and students from low SES households in homes with high seismic vulnerability. Such socioeconomic segregation is not built into the seismic vulnerability measure, which is constructed only from construction materials. Therefore, the fact that the distribution of seismic vulnerability varies as expected with SES informally validates the procedure I developed to construct seismic vulnerability. To my knowledge, this is the first direct evidence that housing quality, in terms of earthquake resistance, is highly segregated along socioeconomic lines among Chilean students.  \par 
+ 
+
+ 
+ 
+
+ 
+ \begin{figure}[!ht] 
+ 	\centering
+ 	\includegraphics[scale=0.15] {output/figures/class_prob_by_p_educ_all.png} %0.33
+ 	\caption{Evidence of socioeconomic segregation in housing quality among Chilean families with school-aged children. This graph plots the probability that the home of a school-aged child belongs to each of three seismic vulnerability classes (low-, medium- and high-vulnerability) by the education of the parents. {\itshape Sources:} census 2002 data, restricted to households with at least one school-aged child (N = 929,647). Class probabilities stem from latent-class-analysis using census information on the construction materials of the families' homes. }
+ 	\label{fig:vc_by_peduc}
+ \end{figure}
+ 
+
+ 
+I build the prediction model by estimating a regression on census data. The model can be used to predict the seismic vulnerability of the homes of students in the education dataset because it uses household characteristics available in both the census and the education dataset. Appendix \ref{sec:sv} describes the model. For each household, the model predicts the probabilities that the home belongs to each of the three seismic vulnerability classes. Figure \ref{fig:fit_vc_prediction} shows that its fit is excellent: the housing quality predicted using the estimated model traces very closely the actual housing quality built from information on building materials. The fit worsens slightly only among very old or very highly educated parents, who are very few in the education dataset. This gives me confidence that the model can accurately predict seismic vulnerability for nearly all students in the education dataset. The estimation of the prediction model uses data on the entire Chilean population of families with school-aged children, therefore, it is free of finite-population sampling variability. \par 
+
+
+
+ \begin{figure}[!ht] 
+	\centering
+	\includegraphics[scale=0.18]{output/figures/fit_vc_prediction_all.png} %0.43
+	\caption{Goodness of fit of predicted seismic-vulnerability-class probability by parental education and by age of household head. {\itshape Notes:} census 2002, families with school-aged children (N = 929,647). }
+	\label{fig:fit_vc_prediction}
+\end{figure}
+
+
+
+
+
+ 
+ \paragraph{Step three: combining ground shaking and seismic vulnerability to build a measure of damages.} For each student in the sample I now have measures of the intensity of ground shaking and of the seismic vulnerability of her home. I combine these two pieces of information to build a measure of expected damage, defined as the fraction of the home that needs to be rebuilt. The procedure is as follows.\par 
+ For each vulnerability class and ground shaking level, \cite{astroza2012} provide the distribution of damage grades, which are divided into six categories, ranging from no damage ($DG=0$) to complete collapse: ($DG=5$). Following \cite{bommer2002development}, I assign to each category $DG_m$ a numerical damage measure $d(DG)\in[0,1]$, called ``damage ratio," which measures damages as a fraction of complete collapse, where $d=1$ represents complete collapse. If the vulnerability class was observed, we could obtain the expected damage ratio of household $i$ given its vulnerability class $vc_i$ and ground shaking intensity level $I_i$ as $E[d_i|vc_i,I_i]=\sum_{m=0}^5 d(DG=m) p^m(vc_i,I_i)$, where $p^m(vc_i,I_i)$ is the probability that a house of vulnerability class $vc_i$ subject to ground shaking $I_i$ suffers a damage grade $DG=m$, which carries a level of damage ratio equal to $d(DG=m)$. But the vulnerability class is not observed. Instead, for each student in the data I observe a vector of predicted probabilities that her house belongs to one of each vulnerability class. Therefore, for each household with characteristics $x_i$ I use the predicted likelihood that it belongs to each vulnerability class $j=1,2,3$ ($\hat{p}^j(x_i)$ in Appendix \ref{sec:sv}) to build a measure of the expected damage ratio:
+ 
+ \begin{equation}\label{eq:measure_damage}
+ d_i=E[d|x_i,I_i]=\sum_{j=1}^3 \hat{p}^j(x_i)\cdot \left(\sum_{m=0}^5 d(DG=m)p^m(vc=j,I_i)\right)
+ \end{equation}
+ 
+   
+ \noindent I standardize this measure in the sample so that it has mean zero and unit variance. This is the measure of home damage used throughout the analysis.\par 
+
+ \paragraph{Tsunami.} The damage ratio is not designed to measure damage stemming from the accompanying tsunami that afflicted coastal towns. In coastal areas it may suffer from larger measurement error, which would lead to attenuation bias. To avoid this, I restrict the sample to non-coastal towns, defined as those located more than 1 km from the coast,  verifying the robustness of the results to different geographical restrictions. This sample restriction excludes approximately $15\%$ of the observations from the analysis.\par 
+ 
+ 
+
+ 
+
+\subsection{Descriptive analysis}\label{sec:descrptive}
+
+
+I document new facts about the propagation of damages from the 2010 Maule earthquake among students.\par 
+
+Among students of the post-earthquake cohort who live in earthquake regions (i.e., the students affected by the earthquake), the fraction of the home that collapsed ranged from $0\%$ to $59\%$, and on average was $1.7\%$ (Panel A, Table \ref{tab:descdamages}). The distribution was right-skewed, with most students ($\sim 95\%$) suffering damage ratios below $7\%$. Average reconstruction costs amounted to USD $1,439$, with a standard deviation of USD $3,540$. To express damages relative to households' resources, I also compute the ratio of damage to annual household income. The average of this ratio is 0.43, and its standard deviation is 1.55.\footnote{These back of the envelope calculations use the $2010$ USD to CLP exchange rate, and depend on the assumed cost of reconstructing a completely collapsed home. I assume the cost is equal to the average market price of a $50m^2$ home in Chile in 2010, which was USD $84,175$ (see \url{https://www.globalpropertyguide.com/Latin-America/Chile/square-meter-prices}). If a home suffered an unstandardized damage ratio of $x\%$, then the damage in dollars is measured as $x\% \cdot 84,175$. In the main analyses, I use the standardized damage ratio $d_i$, defined in equation \eqref{eq:measure_damage}, as the measure of damages, because its value does not depend on assumptions on home reconstruction costs.} Lower earning households incurred disproportionately higher damages; a $1\%$ increase in earnings is associated with USD $76$ fewer damages. \par 
+
+
+We have already seen that students from lower SES live in homes with larger seismic vulnerability (Figure \ref{fig:vc_by_peduc}). Figure \ref{fig:damages_peduc} shows that also the level of home damage, which depends on both seismic vulnerability and ground shaking, decreased with students' SES, as measured by parental education. On average, the homes of students whose parents have at least some college education incurred $793$ fewer USD of damages, or half the amount, than those of students whose parents do not have any college education. The Figure also shows that at all levels of parental education, students in public schools suffered more home damage than those in private schools, and those in rural schools more than those in urban schools. The evidence therefore suggests that the homes of the more disadvantaged students (i.e., those with less educated parents, those in public schools, those in rural schools) suffered the largest earthquake damages. Appendix Table \ref{tab:correlates} shows how all student and school characteristics correlate with home damages and building quality. \par 
+
+
+
+\begin{figure}[!ht] 
+	\centering
+	\includegraphics[scale=0.15]{output/figures/damages_peduc.png}
+	\caption{Relationship between home damage and parental education by school characteristics. {\itshape Notes:} sample of students in earthquake-affected regions in the post-earthquake cohort and residing more than 1 km from the coast. The figures present local polynomial regression estimates with $95\%$ confidence intervals. Home damage is measured by the standardized damage ratio $d_i$, defined in equation \eqref{eq:measure_damage}. The top and bottom $1\%$ of observations in terms of parental education were trimmed.}
+	\label{fig:damages_peduc}
+\end{figure}
+
+
+Why did homes of disadvantaged students incur greater damage? Figure \ref{fig:damage_propagation_by_SES} visually displays this disparity across two panels, each featuring a map of how damage propagated geographically. The left panel is based on lower-SES students --- those without college-educated parents --- while the right is based on higher-SES students --- those with college educated parents. The circle size indicates the proportion of the respective SES populations living in a particular town. The color intensity indicates the average damage severity for students in that town and SES group, with darker colors indicating worse damage.\par 
+
+
+
+\begin{figure}[h!] 
+	\centering
+	\includegraphics[scale=0.65]{output/figures/damage_propagation_by_SES_py.png}
+	\caption{Map of Chile showing propagation of damage from the 2010 Maule earthquake among students by socioeconomic demographics. {\itshape Notes:} The left panel shows damage propagation among students whose parents do not have college education, the right panel among students whose parents have college education. Each circle represents a town. Its size represents the percentage of the sample of non-college-educated parents (left panel) or of college-educated parents (right panel) living in that town. The shade reflects the average level of damages to the homes of the students without (left panel) or with (right panel) college-educated parents in that town,  measured in USD. For reference, the average annual wage in the entire sample is USD 8,378. College education is defined as having more than 14 years of education, as most vocational higher-education degrees require at most 14 years of education. Data source for country boundaries: \cite{natural_earth_admin0}. }
+	\label{fig:damage_propagation_by_SES}
+\end{figure}
+
+
+
+
+The maps reveal that lower-SES students were more likely to live in the (mostly rural) areas most affected by the earthquake than higher-SES students. But even conditional on residing in the same town, the homes of lower-SES students were more damaged, because of lower-quality housing. Damage propagation, therefore, was unequal across socioeconomic lines in Chile because of differences in residential choice and housing  quality. While such socioeconomic inequality may appear unsurprising, this is one of the first studies to document it. \par 
+
+
+
+
+There is variation in how students in the same classroom were affected by the earthquake: $98\%$ of students from the post-earthquake cohort going to school in affected non-coastal areas were enrolled in classrooms where not all students suffered equal damages. This fraction is nearly the same across public and private schools ($98.0\%$ vs. $97.5\%$), and slightly larger among urban ($97.9\%$) than rural ($95.9\%$) schools. As shown in Panel Aii of Table \ref{tab:descdamages}, students were exposed to substantial dispersion in earthquake damages. The average within-classroom standard deviation of the non-standardized damage ratio (the fraction of the home that collapsed) is $0.5\%$, which corresponds to USD 417 at 2010 reconstruction costs. As an alternative scale, I also compute the damage-to-family-income ratio for each student and the standard deviation of this ratio within each classroom. On average, the standard deviation of this ratio is 37\%, meaning that in a typical classroom, home damages differed across students by about 37\% of households' own annual income. In some classrooms the standard deviation in damages reached staggering levels, such as $6.1\%$  at the $99^{th}$ percentile, or USD $5,132$, over seven months' worth of income. Therefore, while students attending the same classroom tended to live in nearby towns and belong to similar socioeconomic classes, there was variation within classrooms in how students were affected by the earthquake, driven by differences in ground shaking and housing quality. This provides rich within-classroom variation in individual-level shocks.\par 
+
+Variation in damages did not only arise within classrooms, but also across classrooms within the same schools and across schools. Intra-class correlation estimates reveal that $91.0\%$ of the total variance in home damages was explained by differences between schools, with the remaining variation occurring within schools. There was also variation in the classroom-level dispersion in damages: 87.4\% of its total variance occurred across schools, with the remaining variation occurring within schools. By contrast, virtually all the variation in the classroom-level mean in damages was across schools (99.8\%).\par 
+
+
+
+
+Finally, Table \ref{summaryprepost} presents descriptive statistics of the pre- and post-earthquake cohorts of students, both country-wide and for the main estimation sample, which display similar characteristics. The descriptive statistics for individual and classroom-level damage-based variables in both cohorts are reported in Appendix Table \ref{tab:descdamages}.\par  
+
+
+\input{output/tables/descriptive_pre_post.tex}
+
+
+
+

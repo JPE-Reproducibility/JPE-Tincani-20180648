@@ -1,0 +1,338 @@
+\section{Measurements}
+
+\subsection{Predicting Seismic Vulnerability of a Household's Home}\label{sec:sv}
+This section describes the model used to predict seismic vulnerability as a function of household characteristics.\par  
+
+  For each household in the census data (restricted to households with at least one school-aged child), I link the vulnerability class distribution obtained from the latent-class analysis to the household characteristics that are available both in the census and in the education data, which I indicate with $x_i$ here. These are: the age of the household head, the average years of education of mothers and fathers, the region of residence. I then estimate linear regression models using census data restricted to households with at least one school-aged child. The outcome variables are $p_i^j$, the probability that household $i$ lives in a home of seismic vulnerability $j\in\{LV, MV, HV\}$, obtained from the latent-class analysis. The independent variables are parental education and age with exponents one, two and three, and region of residence. All independent variables appear uninteracted and interacted with each other (from pair-wise interactions to the interaction of all variables). 
+  
+  
+ 
+ I apply the estimated predictive regression model to the education dataset to obtain a predicted likelihood of belonging to each vulnerability class for each student in my sample: $\hat{p}^j_i=p^j(x_i)$, $j=LV,MV,HV$.\footnote{Since the outcome variable is a probability, I assign a $0$ to negative predictions and a $1$ to those above $1$.} \par
+ 
+
+
+
+\subsection{Survey Measures of Perceived Cost of Study Effort and Course Engagement}\label{sec:surveyeffort}
+
+Students from both cohorts were asked to fill out a questionnaire when they were in eighth grade, the grade in which outcomes were measured. The pre-earthquake cohort filled it out in 2009 and the post-earthquake cohort in 2011. The questionnaire asked about the ability to engage with the course and the perceived cost of study effort. The structure of the questions was as follows: ``Thinking of your experience in your school, how much do you agree with the following statements?", followed by a list of statements. Between 2009 and 2011 the number of options in the Likert-scale options changed. In 2009 the possible answers were ``I agree very much", ``I agree", ``I do not agree nor disagree", ``I disagree", ``I disagree very much". In 2011 the middle option, ``I do not agree nor disagree", was eliminated. \par 
+
+From the raw data, I build measures of perceived effort cost and engagement with course content that are comparable across cohorts. For each statement I build two dummy variables: one equal to 1 if a student answers ``I agree very much", and 0 if she gives a different answer, and another equal to 1 if a student answers ``I disagree very much", and 0 if she gives a different answer. Perceived effort cost is a categorical variable recording whether a student reported agreeing very much, disagreeing very much, or neither agreeing very much or disagreeing very much with the statement ``It costs me to concentrate and pay attention in class", standardized to have mean 0 and unit variance. Engagement with course content is the score based on the first principal component of a principal component analysis on the six dummy variables obtained from the students' level of agreement with the statements listed at the bottom of Table \ref{tab:constructs}. I standardize the score to have mean 0 and unit variance. \par 
+
+
+The statements with which students recorded their level of agreement are the following: \par 
+
+
+
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{p{0.3\linewidth} p{0.6\linewidth}}
+        \toprule
+        \textbf{Construct} & \textbf{Survey Items} \\
+        \midrule
+        Perceived cost of effort & It costs me to concentrate and pay attention in class. \\
+        \addlinespace
+        Course engagement & \begin{tabular}[t]{@{}p{0.95\linewidth}@{}}
+                                I do the homework even when it is difficult. \\
+                                My notebooks are generally incomplete. \\
+                                During class I take notes of all that our teachers teach us.
+                            \end{tabular} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Constructs and Corresponding Survey Items. \textit{Note:} Source: English translation of SIMCE questionnaire administered to all \(8^{th}\) grade students.}
+    \label{tab:constructs}
+
+
+    
+\end{table}
+
+
+
+
+\newpage
+\section{Additional Tables and Figures}\label{additionaltables}
+ 
+
+%A2
+\input{output/tables/distrib_materials}
+
+
+
+%A3
+\input{output/tables/descriptives_treatvars_damage}
+
+%A4
+\input{output/tables/correlates_pre_post.tex}
+
+
+
+
+% Related to main effects
+% A5
+\input{output/tables/main_effects_ts_span_math}
+
+
+%A6
+\input{output/tables/main_effects_ts_GPA_controls_yn}
+
+
+%A7
+\input{output/tables/descriptive_switches}
+
+
+
+% A8 and A9
+\input{output/tables/main_effects_ts_st_2025_v2}
+
+\input{output/tables/het_effects_st_ts_GPA_bysimce.tex}
+
+
+%A10
+ \input{output/tables/het_effects_ts_deciles_2025}
+
+ %A11
+   \input{output/tables/het_effects_ts_allint}
+
+%A12
+\input{output/tables/main_effects_ts_GPA_tsunami_2025}
+
+
+  %A13
+\input{output/tables/main_effects_spatcor_ts_2025_v2}
+%A14
+%\input{output/tables/conley_to_edit}
+% Add columns 2-5 to obtain the correct edited version, check output/tables/Table_A14_conley.txt for values in those columns
+\input{output/tables/conley_edited}
+
+
+
+   %A15
+    \input{output/tables/main_effects_ts_GPA_fe}
+
+
+% Related to identifying assumption
+
+%A16
+\input{output/tables/descriptive_missing_exp}
+
+ %A17
+\input{output/tables/med_effects_expenditures_select_attr.tex}
+
+%A18
+\begin{table}[H]
+\centering
+
+\input{output/tables/rendidosexp}
+
+\vspace{-15pt}
+\caption{Breakdown of expenditures of the additional resources provided under the SEP program, by category and sub-category. 
+Amounts are in Chilean pesos and represent total spending across all SEP schools in 2009–2010.  External ATE services ({\itshape Asesor\'{i}a T\'{e}cnica Educativa}) correspond to subcontracted consultancies provided by accredited institutions that support schools’ improvement plans required under the SEP law.  Source: {\itshape Rendidos} SEP dataset. \label{tab:expdes}}
+\end{table}
+
+
+
+ 
+\normalsize
+
+\newpage 
+
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.5]{Paper/reconstruccion_dios.png}
+
+	\caption{{\itshape Source}: Comerio (2013). Handmade sign found in Cauquenes, Chile, on February 2, 2012, nearly two years after the earthquake. Translation: ``Reconstruction is like God. Everyone knows it exists. But nobody sees it."}
+	\label{fig:dios}
+\end{figure}
+
+
+\begin{figure}[H] %[p]
+ 	\centering
+ 	\includegraphics[scale=0.18]{output/figures/heteffects_ts_GPA_by_GPA4_nofe.png} %0.25
+ 	\caption{Marginal effects on standardized eighth-grade test score and GPA by baseline (fourth grade) GPA. {\itshape Notes}: Marginal effects of leave-one-out average damage among classmates and leave-one-out standard deviation of damage among classmates. Effects obtained from estimating the regression model in equation \eqref{regression1het}, replacing the baseline test score with the baseline GPA. 80\% and 90\% confidence intervals reported.}
+ 	\label{fig:me_nofe_byGPA4}
+ \end{figure}
+
+
+
+
+ \begin{figure}[H]
+ 	\centering
+ 	\includegraphics[scale=0.15]{output/figures/heteffects_GPArankmean_bysimce.png} %0.2
+ 	\caption{Marginal effects of damage mean on within-classroom GPA rank by baseline test score. {\itshape Notes}: GPA rank is the classroom rank, it ranges from 0 (worst GPA) to 1 (top GPA). Marginal effects of the leave-one-out average of damage among classmates. Effects obtained from estimating the regression model in equation \eqref{regression1het}. 90\% and 80\% confidence intervals reported. }
+ 	\label{fig:heteffectsGPArankmean}
+ \end{figure}
+
+\begin{figure}[H] %[p] scale=.225 from office
+ 	\centering
+ 	\includegraphics[scale=0.15]{output/figures/eff_cost_simce.png}
+ 	\caption{Relationship between reported effort cost and baseline test score. {\itshape Notes}: Local polynomial regression estimated on the sample of students in earthquake regions and in the cohort affected by the earthquake. Top and bottom 1\% of baseline test score distribution trimmed. 95\% confidence intervals reported.}
+ 	\label{fig:eff_cost_simce}
+ \end{figure}
+
+
+ \newpage
+ \section{Theoretical Appendix}\label{app:theorygeneral}
+\subsection{Empirical counterparts of the model's comparative statics}\label{sec:shocks_effort}
+
+
+Propositions~\ref{prop2} and~\ref{prop3} consider comparative statics that increase the within-classroom mean and dispersion of damages in a way that increases the within-classroom mean and dispersion of effort-cost types. This Appendix shows which variation in the data, leveraged in the regression analyses, provides the empirical counterpart to these comparative statics.\par % 
+
+Proposition~\ref{prop2} varies the within-classroom mean of damages while keeping fixed the within-classroom distributions of the other determinants of the effort-cost type. Given the specification for the effort-cost type in equation~\eqref{eq:cost_effort}, it follows that, whenever $\theta_3>0$, an increase in the within-classroom mean of damages induces an increase in the within-classroom mean of the effort-cost type, provided that the within-classroom means of the other determinants of $c_i$ are held constant. Grouping $(a_i,x_i)$ into vector $w_i$ with coefficient vector $\theta_w$, the average effort-cost type among classmates is:
+\begin{equation}
+E_c[c] = \theta_0 + \theta_w^\top E_c[w] + \theta_3 E_c[d],
+\end{equation}
+\noindent where the averages are taken with respect to within-classroom distributions. When $\theta_3>0$, increasing the within-classroom mean of damages $E_c[d]$ while keeping classroom composition $E_c[w]$ constant increases the average effort-cost type. The regressions that estimate the impacts of the within-classroom mean of damages $E_c[d]$ include the vector $E_c[w]$ of controls (e.g.\ average parental education, average fraction of local residents, etc.); the full list is reported in the Table notes. Thus, these regressions provide the empirical counterpart to the theoretical comparative statics.\par 
+
+Proposition~\ref{prop3} varies the within-classroom dispersion of damages so as to induce a change in the within-classroom dispersion of effort-cost types, while keeping fixed the within-classroom distributions of the other determinants of the effort-cost type. Letting $w_{[j]}$ denote element $j$ of vector $w_i$, and $\theta_{w[j]}$ its coefficient, the variance of the effort-cost type among classmates is:
+\begin{eqnarray}\label{eq:varc}
+\mathrm{Var}_c[c] &=& \sum_{j=1}^m \theta_{w[j]}^2\, \mathrm{Var}_c[w_{[j]}]
++ \theta_3^2\, \mathrm{Var}_c[d]
++ 2\sum_{j=1}^{m-1}\sum_{j'>j}^m \theta_{w[j]}\theta_{w[j']}\,\mathrm{Cov}_c(w_{[j]},w_{[j']}) \\ \nonumber 
+&& + 2\sum_{j=1}^m \theta_{w[j]}\theta_3\,\mathrm{Cov}_c(w_{[j]},d),
+\end{eqnarray}
+\noindent where the variances and covariances are taken with respect to within-classroom distributions. When $\theta_3 \neq 0$, increasing the within-classroom variance of damages $\mathrm{Var}_c[d]$, while keeping constant the other variances and covariances on the right-hand side of equation~\eqref{eq:varc}, increases the variance of effort-cost types. The regressions that estimate the impacts of the within-classroom standard deviation of damages include these terms as controls (e.g.\ standard deviation of parental education, pairwise covariance between damage and lagged test score, etc.); the full list is reported in the Table notes. Thus, they provide the empirical counterpart to the theoretical comparative statics.\par
+
+
+
+
+
+ \subsection{Proofs}\label{app:theory}
+ To simplify notation, this appendix drops the $l$ classroom index, under the understanding that all distributions and equilibrium functions are classroom-specific. In deriving comparative statics that compare classrooms with different distributions of the effort cost type, I explicitly specify the classroom indices to clearly distinguish between classrooms.\par 
+
+
+ 
+\noindent Rearranging equation \eqref{eq:FOC} and substituting $c^{\prime}(e_i)=\frac{1}{e^{\prime}(c_i)}$, the following first-order differential equation characterizes the equilibrium strategies:
+
+\begin{eqnarray}\label{eq:diff}
+    e^{\prime}(c_i)&=& \left(\frac{g(c_i)}{1-G(c_i)+\phi}\right)\left(\frac{V(y(e(c_i)),q(e(c_i),c_i))}{(a_0+a_1(\mu_d))V_1+V_2 \frac{\partial q}{\partial e_i}}\right) \\ \nonumber
+    &=& \frac{g(c_i)}{1-G(c_i)+\phi}\psi(e(c_i),c_i),
+\end{eqnarray}
+\noindent where $\psi(e(c_i),c_i)=\frac{V(y(e(c_i)),q(e(c_i),c_i))}{(a_0+a_1(\mu_d))V_1+V_2 \frac{\partial q}{\partial e_i}}.$
+
+
+
+ \begin{proposition}\label{prop1existence}
+    \emph{(Adapted from Proposition 1 in \cite{hopkins2004running})}. 
+    The unique solution to the differential equation \eqref{eq:diff} with the boundary condition $e(\bar{c})=e_{nr}(\bar{c})$, where $e_{nr}$ solves the first-order condition absent rank concerns $$V_1 (a_0+a_1(\mu_d))|_{e_i=e_{nr}}=-V_2\frac{\partial q}{\partial e_i}|_{e_i=e_{nr}},$$ is a unique symmetric Nash Equilibrium of the game of status. Equilibrium effort $e(c_i)$ and equilibrium GPA $y(c_i)$ are both continuous and strictly decreasing in student's type $c_i$.
+\end{proposition}
+
+
+\begin{proof}[{\bf Proof of Proposition \ref{prop1existence}}] 
+First, as in the proof of Proposition 1 in \cite{hopkins2004running}, it is easy to show that the boundary condition
+is optimal for the student with the highest cost, $\bar{c}$. Such student chooses the effort that maximizes utility $V$ in the absence of rank concerns. In equilibrium, her utility from rank is zero, therefore, she
+maximizes $V$, because $V\times F+\phi\times V=V\times 0 + \phi\times V=\phi\timws V$.\par 
+
+Next, I adapt the proof in \cite{hopkins2004running} to show that if the strategy $e^{*}(c_i)$ is a best response to other students’ effort choices, then it is
+decreasing (while \cite{hopkins2004running} deal with increasing functions). If a student $i$ of type $c_i$ exerts effort $e_i=e^{*}(c_i)$ 
+and this is a best response to the efforts of the other students as summarized
+by the effort distribution \textit{F\textsubscript{E}}(\textit{·}), then it must be that \textit{e\textsubscript{i }$\geq$ e\textsubscript{nr}}(\textit{c\textsubscript{i}}), where \textit{e\textsubscript{nr}}(\textit{c\textsubscript{i}}) solves the first-order condition in the absence of
+rank concerns, i.e., $V_1(a_0+a_1(\mu_d))|_{e_i=e_{nr}}=-V_2\frac{\partial q}{\partial e_i}|_{e_i=e_{nr}}$. This is
+because if $e_i<e_{nr}(c_i)$, then $F_E(e_i)+\phi<F_E(e_{nr})+\phi$, because $F_E$ is strictly increasing, and $V\left(y(e_i),q(e_i,c_i)\right)<V\left(y(e_{nr}(c_i)),q(e_{nr}(c_i),c_i)\right)$, because $V_1>0, V_2<0$, and $q_1>0$.
+Therefore, $V\left(y(e_i),q(e_i,c_i)\right)\left(F_E(e_i)+\phi\right)<V\left(y(e_{nr}),q(e_{nr},c_i)\right)\left(F_E(e_{nr})+\phi\right)$,
+i.e., any level of effort below the no-rank-concerns level is strictly
+dominated by the no-rank-concerns level. Suppose that equality holds, so \textit{e\textsubscript{i }}= \textit{e\textsubscript{nr}}(\textit{c\textsubscript{i}}).
+Then $e^{*}(c_i)$ is decreasing because \textit{e\textsubscript{nr}}(\textit{c\textsubscript{i}}) is decreasing. This follows from the assumptions that \textit{V}\textsubscript{11 }= 0, \textit{V}\textsubscript{22 }= 0, $V_{12}\leq 0$, and from the assumptions that $q_1>0, q_2>0,q_{11}>0,$ and $q_{12}\geq 0$. To see why, let $FOC(e_i,c_i)=V_1(a_0+a_1(\mu_d))+V_2q_1$ and notice that by the Implicit Function Theorem:
+$$\frac{d e_{nr}}{d c_i}=-\frac{\partial FOC/\partial c_i}{\partial FOC / \partial e_i}.$$
+
+\noindent The numerator is:
+$$\frac{\partial FOC}{\partial c_i}=(a_0+a_1(\mu_d))V_{12}\frac{\partial q}{\partial c_i}+V_{22}\frac{\partial q}{\partial e_i}\frac{\partial q}{\partial c_i}+V_2\frac{\partial^2 q}{\partial e_i \partial c_i}\leq 0.$$
+
+\noindent The denominator is:
+$$\frac{\partial FOC}{\partial e}=(a_0+a_1(\mu_d))^2V_{11}+(a_0+a_1(\mu_d))V_{12}\frac{\partial q}{\partial e_i}+\left((a_0+a_1(\mu_d))V_{21}+V_{22}\frac{\partial q}{\partial e_i}\right)\frac{\partial q}{\partial e_i}+V_2\frac{\partial^2 q}{\partial^2 e_i}\leq 0.$$
+
+
+\noindent As a result, $e^{*}(\cdot)$ is decreasing in $c_i$ when it is equal to optimally chosen effort in the absence of rank concerns, because $\frac{d e_{nr}}{d c_i}\leq 0$.\par 
+
+If equality does not hold, we want to show that if \textit{e\textsubscript{i }}is a
+best-response and \textit{e\textsubscript{i }$>$ e\textsubscript{nr}}(\textit{c\textsubscript{i}}), then it is still the
+case that \textit{e\textsubscript{i }}is decreasing
+in \textit{c\textsubscript{i}}. First, I show that
+for any other choice $\tilde{e}\in (e_{nr}(c_i),e_i)$,
+\begin{equation}\label{eq:anyothere}
+    \frac{\partial V}{\partial c_i}(y(e_i),q(e_i,c_i)) (F_E(e_i)+\phi)<\frac{\partial V}{\partial c_i}(y(\tilde{e}),q(\tilde{e},c_i))(F_E(\tilde{e})+\phi).
+\end{equation}
+
+\noindent Rewrite the left-hand side as:
+
+$$\frac{\partial V}{\partial c_i}(y(e_i),q(e_i,c_i))(F_E(\tilde{e}+\phi)+\frac{\partial V}{\partial c_i}(y(e_i),q(e_i,c_i))(F_E(e_i)-F_E(\tilde{e})).$$
+
+\noindent The first term is smaller or equal to the right-hand side of equation \eqref{eq:anyothere}, because $\frac{\partial V}{\partial c_i}$ is decreasing in $e_i$, as $V_{21}\leq 0,V_{22}=0, \frac{\partial q}{\partial c_i}>0, V_2<0,$ and $\frac{\partial^2 q}{\partial c_i \partial e_i}\geq 0$. To see why, notice that $\frac{\partial^2 V}{\partial c_i \partial e_i}=\left(V_{21}(a_0+a(\mu_d)+V_{22}\frac{\partial q}{\partial e_i}\right)\frac{\partial q}{\partial c_i}+V_2 \frac{\partial q}{\partial c_i \partial e_i}\leq 0$. The second term is strictly
+negative, because first, $\frac{\partial V}{\partial c_i}$ is strictly negative because $V_2<0$ and $\frac{\partial q}{\partial c_i}>0$, and second, $F_E(e_i)-F_E(\tilde{e})>0$. To see why the latter is
+true, notice that for $e_i>e_{nr}$, $V(y(e_i),q(e_i,c_i))$ is decreasing in
+$e_i$. Therefore, if $e_i$ is a best-response, it must be the case that $F_E(e_i)>F_E(\tilde{e})$,
+otherwise a student could lower effort and obtain a higher utility, while not
+lowering her status. This establishes the inequality in \eqref{eq:anyothere}, so that at \textit{e\textsubscript{i}}, the overall marginal
+utility with respect to $c_i$, $(\frac{\partial}{\partial c_i}(V(y_i,q_i)(F_E(e_i)+\phi)))$,
+is strictly decreasing in $e_i$. This
+implies that an increase in cost type $c_i$ leads
+to a decrease in the marginal return to $e_i$,
+therefore, the optimal choice of effort $e_i$ must decrease.
+
+To show that if an effort function is an equilibrium strategy, then it must be continuous, we can follow the proof in \cite{hopkins2004running} with a minor adaptation to account for the fact that the equilibrium strategy in this paper is a decreasing rather than increasing function. Specifically, suppose the equilibrium strategy was not continuous. That is, suppose that that there was a jump downwards in the
+equilibrium effort function $e^{*}(c_i)$ at $\tilde{e}$, so that $\lim_{c_i\to \tilde{c}}e^{*}(c_i)=\tilde{e}<e^{*}(\tilde{c})$. Then, there would exist an $\epsilon>0$ small enough, such that the student
+of type $\tilde{c}-\epsilon$ can reduce her effort to
+$\tilde{c}$, which is below $e^{*}(\tilde{c}-\epsilon)$, and obtain a discrete
+increase in utility because of the lower effort, while her rank would decrease
+by less, by continuity of the rank function \textit{S}(\textit{·}) at $\tilde{c}$. Therefore, there exists a student with an incentive to deviate,
+and such discontinuous $e^{*}(c_i)$ function cannot be an equilibrium
+strategy.\footnote{That the equilibrium strategy is {\itshape strictly} decreasing and differentiable follows from \cite{hopkins2004running} after replacing $z_i$ with $c_i$, $x_i$ with $e_i$, and $x(z_i)$ with $e(c_i)$ (with the only difference that $e(\cdot)$ is decreasing and $x(\cdot)$ is increasing), and setting $\alpha>0$. }\par 
+
+Finally, if $e^{*}(c_i)$ is continuous and decreasing then it must be that $y^{*}(c_i)=y(e^{*}(c_i))$ is continuous and decreasing, because $y(\cdot)$ is a continuous function of $e_i$ and $\frac {d y}{d e_i}>0$ $\forall e_i$ as per equation \eqref{eq:y_prod}.\par 
+
+Uniqueness of the solution to the differential equation in \eqref{eq:diff}, and therefore uniqueness of the
+equilibrium, follows from the fundamental theorem of differential equations.
+The boundary condition pins down the unique solution.\par 
+
+
+\end{proof}
+
+
+
+
+\begin{proof}[{\bf Proof of Proposition \ref{prop2}}]
+Let \( e_A(c_i) \) and \( e_B(c_i) \) denote the equilibrium effort choices in classrooms \( A \) and \( B \). Proposition \ref{prop1existence} established that \( e_A(c_i) \) and \( e_B(c_i) \) are strictly decreasing functions of \( c_i \). Moreover, for the highest value of \( c_i \) in each classroom, denoted by \( \bar{c}_J \) for \( J = A, B \), these effort choices satisfy the following first-order condition for maximization in the absence of rank concerns:
+\begin{equation}\label{eq:FOC_AB}
+    V_1 (a_0+a_1(\mu_d^J)) = -V_2 \frac{\partial q}{\partial e_i} \quad \text{for } J = A, B.
+\end{equation}
+Assuming that the equilibrium effort functions in classrooms A and B do not cross after the uniform shift in cost types, we can focus on the optimal effort choice for the student with the highest \( c_i \) in each classroom.\footnote{This monotone-comparative-statics property is standard in games with strategic complementarities and when payoffs exhibit (weak) decreasing differences in the relevant choice-parameter pair, $(e_i,k)$ in this case (see \cite{milgrom1994monotone}).} Under this assumption, the ordering of equilibrium efforts for the highest-cost type extends to all types in the classroom. Therefore, if \( e_B(\bar{c}_B) > e_A(\bar{c}_A) \), then \( E_B[e_i] > E_A[e_i] \). Similarly, if \( e_B(\bar{c}_B) < e_A(\bar{c}_A) \), then \( E_B[e_i] < E_A[e_i] \). Recall that $y(e_i)=(a_0 + a_1(\mu_d))e_i+u_0+u_1(\mu_d)$, with $\frac{d a_1}{d \mu_d}\geq 0$ and $\frac{d u_1}{d \mu_d}\geq 0$ representing the multiplicative and additive compensatory actions by schools. The damage distribution shift implies that $\mu_d^B>\mu^A_d$. Then:
+\begin{itemize}
+\item If $\frac{\partial^2 q}{\partial e_i \partial c_i}=0$ and $\frac{d a_1}{d \mu_d}=0$, then the right-hand side (RHS) and left-hand side (LHS) of equation \eqref{eq:FOC_AB} are identical in classrooms A and B. Hence the equilibrium effort choice of the highest-cost type is the same in both classrooms: $e_B(\bar c_B)=e_A(\bar c_A)$. For all other types, however, the shift in costs affects both their utility levels and the strength of rank incentives, and the model does not deliver a sharp prediction for the sign of the resulting changes in equilibrium effort or GPA.\par 
+
+\noindent In the case of no multiplicative compensation ($\frac{d a_1}{d \mu_d}=0$), the model is agnostic about the effect of a uniform increase in damages on average GPA. This conclusion holds regardless of whether schools implement additive compensation ($\frac{d u_1}{d \mu_d}>0$) or not ($\frac{d u_1}{d \mu_d}=0$). 
+
+    \item  If $\frac{\partial^2 q}{\partial e_i \partial c_i} =0$ and $\frac{d a_1}{d \mu_d}>0$, then the LHS of equation \eqref{eq:FOC_AB} is larger in classroom B than in classroom A. As $q$ is an increasing convex function of $e_i$, so that $\frac{\partial q}{\partial e_i}$ is increasing in $e_$, it must be that $e_B(\bar{c}_B)>e_A(\bar{c}_A)$, resulting in $E_B[y_i]>E_A[y_i]$.\par 
+    \noindent When compensatory action increases the marginal return to effort and there is no change to its marginal cost, students exert more effort, resulting in higher GPA both because of increased effort and of a larger coefficient on effort in the achievement production function.
+
+    \item If $\frac{\partial^2 q}{\partial e_i \partial c_i}>0$ and $\frac{d a_1}{d \mu_d}>0$, then the LHS of equation \eqref{eq:FOC_AB} is larger in classroom B than in classroom A. As $\bar{c}_B>\bar{c}_A$ because damages are larger for all students in classroom B, the RHS is larger in classroom B than in classroom A for any given effort level.\par 
+    For small enough $\frac{\partial^2 q}{\partial e_i \partial c_i}$, i.e. $\frac{\partial^2 q}{\partial e_i \partial c_i}\leq \gamma$ with $\gamma$ a positive constant, we have $e_B(\bar{c}_B)\geq e_A(\bar{c}_A)$, resulting in $E_B[y_i]>E_A[y_i]$ (holding with strict inequality because the increased coefficient on effort in the GPA production function in classroom B causes larger GPA even in the case in which effort is equal across classrooms). \par 
+    For large enough $\frac{\partial^2 q}{\partial e_i \partial c_i}$, i.e.  $\frac{\partial^2 q}{\partial e_i \partial c_i}> \gamma$, $e_B(\bar{c}_B)< e_A(\bar{c}_A)$. This can results in $E_B[y_i]\geq E_A[y_i]$ if the compensatory action (through $a_1$, $u_1$ or both) (over)compensates the reduction in effort, or in $E_B[y_i]<E_A[y_i]$ if it does not.\par 
+    When both the marginal cost and benefit of effort increase, the sign of the impact on effort depends on the relative magnitudes of such increases. When the increase in the marginal benefit due to the compensatory action is larger in magnitude than the increase in the marginal cost due to the larger damages, GPA increases in classrooms more affected by the earthquake, because of the increased effort and of the compensatory action. When the increase in the marginal benefit is lower than that in the marginal cost, GPA may increase or decrease depending on whether the compensatory action (over)compensates for the decreased effort.\par 
+     \item If $\frac{\partial^2 q}{\partial e_i \partial c_i}>0$ and $\frac{d a_1}{d \mu_d}=0$, the LHS of equation \eqref{eq:FOC_AB}  is identical across classrooms, while the RHS is larger in classroom B for any given effort level, resulting in $e_B(\bar{c}_B)< e_A(\bar{c}_A)$. This results in either $E_B[y_i]\geq E_A[y_i]$ if the compensatory action through $u_1$ (over)compensates the reduction in effort, or in $E_B[y_i]<E_A[y_i]$ if it does not.\par
+     When the marginal cost of effort increases (due to the larger damages) and its marginal benefit stays constant (due to lack of compensatory action through $a_1$), effort decreases. GPA may increase or decrease depending on whether the additive compensatory action ($u_1$) overcompensate for decreased effort. 
+    
+    
+    
+
+    
+\end{itemize}
+\end{proof}
+
+
+\begin{proof}[{\bf  Proof of Proposition \ref{prop3}}] The results follow from Proposition \ref{prop1existence} and Proposition 4 in \cite{hopkins2004running} for the case $\alpha>0$ (where $\alpha$ there is the equivalent of $\phi$ in this paper), noting that $e_i$ in this paper corresponds to $x_i$ in theirs, $c_i$ corresponds to $z_i$, $e^{*}(c_i)$ corresponds to $x^{*}(z_i)$. As per Proposition \ref{prop1existence}, $e^{*}(c_i)$ is strictly decreasing, while $x^{*}(z_i)$ in \cite{hopkins2004running} is strictly increasing, which implies that rank $G(x^{-1}(x_i))$ in their paper's proof must be replaced by rank $1-G(c(e_i))=1-G(e^{-1}(e_i))$ here, and the results follow.
+
+    
+\end{proof}
+
+
+\begin{proof}[{\bf Proof of Proposition \ref{prop4}}] 
+At the Nash Equilibrium in classroom $J\in\{A,B\}$, keeping $d_i$ and $x_i$ fixed, GPA $y(\cdot)$ is strictly increasing in $a_i$, and therefore invertible. This follows from the fact that $y_i$ is strictly decreasing in $c_i$, and $c_i$ is strictly decreasing in $a_i$. Therefore, the probability that a student $i$ with baseline test score $a_i$ and GPA $y_i$ obtains a higher GPA than another student $j$, chosen at random among those with $x_j=x_i=x$ and $d_j=d_i=d$, is $F_Y^J(y_i)|_{x,d}=Pr\big(y_i>y(a_j)\big)|_{x,d}=Pr\big(y^{-1}(y_i)>a_j\big)|_{x,d}=Pr\big(a(y_i)>a_j\big)|_{x,d}=F_T(a_i)|_{x,d}$ where $F_T(\cdot)|_{x,d}$ is the c.d.f. of $a_i$ conditional on $x,d$ and $a(\cdot)=y^{-1}(\cdot)$. \par 
+Therefore, conditional on $x_i,d_i$, the GPA rank of a student with baseline test score $a_i$ is constant across classrooms $\forall a_i$.
+
+    
+\end{proof}
+
+
+\input{Paper/model_extension}
+
+
+\input{Paper/appendix_reconstruction_policy}

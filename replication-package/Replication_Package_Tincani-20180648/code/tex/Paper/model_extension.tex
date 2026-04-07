@@ -1,0 +1,191 @@
+\subsection{Extension with an idiosyncratic shock to effort cost type}\label{sec:model_extension}
+
+
+
+
+The model assumes that each student's cost-of-effort type is private information. Since the determinants of this type include student characteristics that are plausibly observable to peers, this assumption may be too strong in the empirical context. This Appendix, therefore, extends the model to allow the effort-cost type to depend on an additional idiosyncratic component $\epsilon_i$, whose realization is observed only by the student. It then shows that the study's conclusions are robust to this extension.\par 
+
+
+
+
+
+
+Consider the augmented cost-of-effort type
+\begin{equation}\label{eq:cost_effort_extension2}
+c_i \;=\; \theta_0 \;+\; \theta_w^\top w_i \;+\; \theta_3 d_i \;+\; \epsilon_i,
+\qquad
+w_i \equiv (a_i,x_i), \ \ \theta_w \equiv (\theta_1,\theta_2)^\top.
+\end{equation}
+As in the baseline model, each student’s type $c_i$ is private information, while the reference-group distribution $G_l(\cdot)$ is common knowledge. We impose no parametric restrictions on $G_l(\cdot)$. The shock $\epsilon_i$ is unobserved by the econometrician.
+
+\paragraph{Existence and uniqueness.}
+Proposition~\ref{prop1existence} continues to hold because its proof does not depend on the distribution of $c_i$ or its components, nor on the specification for $c_i$. 
+
+\paragraph{Comparative statics.}
+Propositions~\ref{prop2}--\ref{prop3} compare equilibria across classrooms under changes in the within-classroom distribution of $d_i$ that hold fixed the joint within-classroom distribution of the remaining determinants of $c_i$. Hence, provided the joint within-classroom distribution of $(a_i,x_i,\epsilon_i)$ is held fixed, the comparative-statics results remain valid.
+\paragraph{Empirical counterpart to Proposition~\ref{prop2}.} Let $E_c[\cdot]$ denote within-classroom averages and $\mathbb E_C[\cdot]$ the expectation across classrooms. From~\eqref{eq:cost_effort_extension2},
+\begin{equation}\label{eq:avg_cost_effort_extension}
+E_c[c] \;=\; \theta_0 \;+\; \theta_w^\top E_c[w] \;+\; \theta_3 E_c[d] \;+\; E_c[\epsilon].
+\end{equation}
+
+The empirical implementation provides a counterpart to the model’s comparative statics by controlling for within-classroom means of the determinants of $c_i$ \emph{observed} by the econometrician, i.e., of $w$ (Appendix~\ref{sec:shocks_effort}). Because $\epsilon_i$ is unobserved, its within-classroom mean cannot be included as a regressor. The regressions remain valid empirical counterparts of the theoretical comparative statics under the following assumption.
+
+\noindent {\itshape Assumption C.3.1 (Conditional mean independence and linearity).}
+Within each classroom, $\{(d_{ci},w_{ci},\epsilon_{ci})\}_{i=1}^n$ are i.i.d.\ draws from the population distribution of $(d,w,\epsilon)$. The idiosyncratic shock $\epsilon_{ci}$ is mean independent of $d_{ci}$ conditional on $w_{ci}$, and the conditional expectation $E[\epsilon \mid w]$ is linear in $w$:
+\[
+E[\epsilon \mid d,w] = E[\epsilon \mid w]=\alpha + \beta w.
+\]
+\label{ass:epsilon_indep}
+
+\vspace{-20pt}
+\noindent Under these assumptions, the within-classroom mean $E_c[\epsilon]$ satisfies 
+\[
+\mathbb{E}_C\!\big[\,E_c[\epsilon]\ \big|\ E_c[d]=\bar d,\ E_c[w]=\bar w\,\big]
+=  \mathbb{E}_C\!\big[\,E_c[\epsilon]\ \big|\ E_c[w]=\bar w\,\big],
+\]
+which does not vary with $\bar d$. Hence,
+\[
+\frac{d}{d\,\bar d}\ 
+\mathbb{E}_C\!\big[\,E_c[\epsilon]\ \big|\ E_c[d]=\bar d,\ E_c[w]=\bar w\,\big]
+= 0,
+\]
+and
+\[
+\frac{d}{d\,\bar d}\ 
+\mathbb{E}_C\!\big[\,E_c[c]\ \big|\ E_c[d]=\bar d,\ E_c[w]=\bar w\,\big]
+= \theta_3.
+\]
+
+Therefore, under assumption C.3.1, increasing across classrooms the within-classroom mean $E_c[d]$ while keeping observed classroom composition $E_c[w]$ constant increases the average value of the effort-cost type without changing the within-classroom mean of the unobservable in expectation, and therefore provides a valid empirical counterpart to the theoretical comparative statics, even when $c_i$ includes the unobserved shock~$\epsilon_i$. \par 
+
+
+In practice, the empirical implementation relies on a difference-in-differences design that delivers the exogeneity condition in C.3.1 through across-cohorts differencing. The regression error term may be correlated with damages within cohorts, but this correlation is assumed to remain constant across the pre- and post-earthquake cohorts. The difference-in-differences estimator thus differences out any correlation between unobserved determinants of outcomes and classroom damages, satisfying the mean-independence condition required for the interpretation of the estimates as empirical counterparts to the extended model’s comparative statics.
+
+
+
+\paragraph{Empirical counterpart to Proposition \ref{prop3}.}
+Proposition~\ref{prop3} in the extended model varies the within-classroom dispersion of $d_i$ while holding fixed the within-classroom distributions of $(a_i,x_i,\epsilon_i)$. From~\eqref{eq:cost_effort_extension2}, the within-classroom variance of the effort-cost type is:
+
+\begin{eqnarray}\label{eq:var_cost_effort_extension_scalar}
+\mathrm{Var}_c[c] 
+&=& \sum_{j=1}^m \theta_{w[j]}^{2}\, \mathrm{Var}_c[w_{[j]}] 
+\;+\; 2\sum_{j=1}^{m-1}\sum_{j'>j}^{m} \theta_{w[j]}\theta_{w[j']}\,\mathrm{Cov}_c(w_{[j]},w_{[j']})
+\;+\; \theta_3^2\, \mathrm{Var}_c[d]  \\[6pt]
+&& +\; 2\sum_{j=1}^{m} \theta_{w[j]}\theta_3\,\mathrm{Cov}_c(w_{[j]},d)
+\;+\; \mathrm{Var}_c[\epsilon]
+\;+\; 2\sum_{j=1}^{m} \theta_{w[j]}\,\mathrm{Cov}_c(w_{[j]},\epsilon)
+\;+\; 2\theta_3\,\mathrm{Cov}_c(d,\epsilon), \nonumber
+\end{eqnarray}
+
+
+
+
+
+\noindent where all moments are taken with respect to within-classroom distributions. 
+In the (extended) theoretical model, the comparative statics vary $\mathrm{Var}_c[d]$ while keeping $\mathrm{Var}_c[\epsilon]$, $\mathrm{Cov}_c(d,\epsilon)$, and $ \mathrm{Var}_c[w_{[j]}], \mathrm{Cov}_c(w_{[j]},d),  \mathrm{Cov}_c(w_{[j]},\epsilon)$, $\mathrm{Cov}_c(w_{[j]},w_{[j']})$ for $j=1,...,m$, $j\neq j^{'}=1,...,m-1$ fixed. The regressions include controls for the within-classroom variances and covariances of the observed determinants of $c$ (i.e.,  $ \mathrm{Var}_c[w_{[j]}], \mathrm{Cov}_c(w_{[j]},d),\mathrm{Cov}_c(w_{[j]},w_{[j']})$); the full list is reported in the Table notes. 
+
+
+Because $\epsilon_i$ is unobserved, its within-classroom variance and covariances cannot be included as controls in the empirical regressions. 
+The regressions remain valid empirical counterparts to the comparative statics under the following assumption.\\
+
+\noindent {\itshape Assumption C.3.2 (Conditional mean independence and conditional invariance of $\epsilon$ moments).}
+Within each classroom, $\{(d_{ci},w_{ci},\epsilon_{ci})\}_{i=1}^n$ are i.i.d.\ draws from the population distribution of $(d,w,\epsilon)$. 
+The idiosyncratic shock $\epsilon_{ci}$ is mean independent of $d_{ci}$ conditional on $w_{ci}$:
+\[
+E[\epsilon \mid d,w] = E[\epsilon \mid w].
+\]
+In addition, conditional on the observed classroom composition $S_c$ (which includes the within-classroom variances and covariances of $w$ and their covariance with $d$) the within-classroom moments of $\epsilon$ do not co-vary across classrooms with the within-classroom variance of damages:
+\[
+\mathrm{Cov}_C\!\big(\mathrm{Var}_c[\epsilon],\,\mathrm{Var}_c[d] \mid S_c\big)=0,
+\qquad
+\mathrm{Cov}_C\!\big(\mathrm{Cov}_c(d,\epsilon),\,\mathrm{Var}_c[d] \mid S_c\big)=0,
+\]
+$$\mathrm{Cov}_C\!\big(\mathrm{Cov}_c(w_{[j]},\epsilon),\,\mathrm{Var}_c[d] \mid S_c\big)=0 \quad \forall j.$$
+
+These conditions allow $\mathrm{Var}_c[\epsilon]$, $\mathrm{Cov}_c(d,\epsilon)$, and $\mathrm{Cov}_c(w_{[j]},\epsilon)$ to vary across classrooms, but require that any such variation be orthogonal to $\mathrm{Var}_c[d]$ once observable classroom characteristics are controlled for.\footnote{
+A sufficient (stronger) condition would be that $d$ and $\epsilon$ are independent in the population.}\par 
+
+\noindent Under assumption C.3.2, the within-classroom variance of $\epsilon_i$ and its covariance with $d_i$ satisfy
+\[
+\mathbb{E}_C\!\big[\mathrm{Var}_c[\epsilon]\ \big|\ \mathrm{Var}_c[d],\,S_c\big]
+= \mathbb{E}_C\!\big[\mathrm{Var}_c[\epsilon]\ \big|\ S_c\big],
+\qquad
+\mathbb{E}_C\!\big[\mathrm{Cov}_c(d,\epsilon)\ \big|\ \mathrm{Var}_c[d],\,S_c\big]
+= \mathbb{E}_C\!\big[\mathrm{Cov}_c(d,\epsilon)\ \big|\ S_c\big],
+\]
+which implies that neither $\mathrm{Var}_c[\epsilon]$ nor $\mathrm{Cov}_c(d,\epsilon)$ varies systematically with $\mathrm{Var}_c[d]$ once the observed classroom characteristics $S_c$ are controlled for. Hence,
+\[
+\frac{d}{d\,\mathrm{Var}_c[d]}\,
+\mathbb{E}_C\!\big[\mathrm{Var}_c[\epsilon]\ \big|\ \mathrm{Var}r_c[d],\,S_c\big] = 0,
+\qquad
+\frac{d}{d\,\mathrm{Var}_c[d]}\,
+\mathbb{E}_C\!\big[\mathrm{Cov}_c(d,\epsilon)\ \big|\ \mathrm{Var}_c[d],\,S_c\big] = 0.
+\]
+Substituting these results into equation~\eqref{eq:var_cost_effort_extension_scalar} yields
+\[
+\frac{d}{d\,\mathrm{Var}_c[d]}\,
+\mathbb{E}_C\!\big[\mathrm{Var}_c[c]\ \big|\ \mathrm{Var}_c[d],\,S_c\big]
+= \theta_3^2.
+\]
+Therefore, under conditional mean independence and conditional invariance of the moments of $\epsilon_i$, increasing across classrooms the within-classroom variance of damages while holding constant the observed classroom composition $S_c$ increases, in expectation, the within-classroom variance of the effort-cost type by $\theta_3^2$. Therefore, the regressions provide a valid empirical counterpart to the theoretical comparative statics, even when $c_i$ includes the unobserved shock $\epsilon_i$. \par 
+
+
+
+
+In the empirical implementation, the regressions that estimate the effects of the within-classroom standard deviation of damages include controls for the within-classroom variances and covariances of the observed components of $c$.  Under assumption C.3.2, the omission of the within-classroom moments of the unobserved $\epsilon_i$ does not affect the interpretation of these regressions as empirical counterparts to the model’s comparative statics.\footnote{As the impacts of the within-classroom mean and dispersion of damages are estimated from a single regression, assumption C.3.2, which is stronger than C.3.1, must hold for the estimates of the impact of the mean and dispersion of damages to be valid empirical counterparts to the model's comparative statics.} As in the empirical counterpart to Proposition~\ref{prop2}, identification in practice relies on a difference-in-differences design, which delivers the required exogeneity condition in C.3.2 through across-cohorts differencing: although the regression error may be correlated with damage dispersion within a cohort, this correlation is assumed to remain constant between the pre- and post-earthquake cohorts, so that differencing removes it.\\ 
+
+
+
+\paragraph{Heterogeneity by baseline test score in the extended model.}
+I introduce an additional assumption to ensure that the results on heterogeneity of the impacts by baseline test scores provide correct empirical counterparts to the theoretical results from the extended model.\par 
+
+
+
+
+
+
+In the baseline model (equation~\eqref{eq:cost_effort}), heterogeneity by the observed component $a_i$ coincides with heterogeneity by the (unobserved) effort-cost type $c_i$ when $x_i$ and $d_i$ are held fixed (Lemma~\ref{lemma}). With the addition of $\epsilon_i$ in~\eqref{eq:cost_effort_extension2} in the extended model, we cannot condition on $\epsilon_i$. The following assumption is sufficient to recover the same monotone mapping in expectation.\\
+
+\noindent{\itshape Assumption C.3.3 (Conditional mean independence of $\epsilon_i$ with respect to $a_i$).}
+Within a classroom, conditional on $(x_i,d_i)$, the idiosyncratic shock $\epsilon_i$ is mean independent of the baseline test score $a_i$:
+
+\[
+E[\epsilon_i \mid a_i,x_i,d_i] \;=\; E[\epsilon_i \mid x_i,d_i].
+\]
+
+
+That is, the expectation of the unobserved shock $\epsilon_i$ is the same for students with high and low baseline test score $a_i$, conditional on the vector of student observables $(x_i,d_i)$.
+
+
+\begin{lemma}\label{lemma:hetero_epsilon}
+Suppose Assumption~C.3.3 holds and $\theta_1< 0$. Given equation \eqref{eq:cost_effort_extension2}, if $x_i=x_j$ and $d_i=d_j$ for $i\neq j$, and $a_i<a_j$, then 
+\[
+E[c_i\mid a_i,x_i,d_i]>E[c_j\mid a_j,x_j,d_j],
+\]
+
+
+\noindent so that grouping students by $a_i$ (holding $x_i$ and $d_i$ constant) orders them by $c_i$ in expectation.
+\end{lemma}
+
+\begin{proof}[{\bf Proof of  Lemma \ref{lemma:hetero_epsilon}}] 
+By~\eqref{eq:cost_effort_extension2} and Assumption~C.3.3,
+
+\[
+E[c_i\mid a_i, x_i, d_i]=\theta_0 + \theta_1 a_i + \theta_2 x_i + \theta_3 d_i + E[\epsilon_i\mid x_i,d_i]
+\]
+\noindent where the conditional expectation of $\epsilon_i$ does not depend on $a_i$ by Assumption~C.3.3. Therefore:
+
+\[
+\frac{\partial E[c_i\mid a_i ,x_i ,d_i]}{\partial a_i}=\theta_1<0,
+\]
+
+\noindent so that $E[c_i\mid a_i, x_i, d_i]$ is strictly monotone in $a_i$.
+
+\end{proof}
+
+
+Under Assumption~C.3.3, $a_i$ provides a monotone ranking of $c_i$ in expectation, conditional on $(x_i,d_i)$, so interacting the classroom-level regressor measuring dispersion in $d$ with student-level $a_i$ recovers heterogeneity with respect to $c_i$ in expectation. In practice, the empirical framework satisfies this assumption through across-cohort differencing: although the individual unobservable may correlate with $a_i$ conditional on $(x_i,d_i)$ within each cohort, as long as this correlation is identical across cohorts, it is eliminated by the difference-in-differences design implemented in equation \eqref{regression1het}.
+
+
+
+

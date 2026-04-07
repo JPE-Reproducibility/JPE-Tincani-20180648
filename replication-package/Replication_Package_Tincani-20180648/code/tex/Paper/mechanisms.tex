@@ -1,0 +1,121 @@
+\section{Mechanisms}\label{sec:mechanisms} 
+\subsection{Classroom- and School-level Factors}\label{sec:schoolsmech}
+ 
+
+
+\subsubsection{School-level responses}\label{sec:schoolFE}
+
+The impacts estimated from equations \eqref{regression1} and \eqref{regression1het} could be mediated by schools' response to the earthquake. For example, in line with governmental earthquake reconstruction plans (Appendix \ref{sec:reconstructionplan}), schools suffering more extensive average damages in their classrooms might have received more emergency funds. The impacts estimated with these models capture the net effect of the disruptions and any remedial actions by schools. To account for school responses, I introduce a modified model that includes school-by-cohort fixed effects. Below I report the specifications with and without interactions with baseline achievement. Like before, vector $x_i$ includes baseline achievement $a_i$:
+\begin{equation}\label{regression1prime}
+    y_{ics}=\tilde{\alpha}_0 +\tilde{\alpha}_1\cdot w_{cs} + \tilde{\alpha_2}\cdot  x_i + \tilde{\beta}^{'}\cdot  D_{ic}+  post_i\cdot  \tilde{\delta}^{'}\cdot D_{ic} + \eta_{s p}+\nu_{ics} \tag{$\ref{regression1}$'}
+\end{equation}
+\vspace{-30pt}
+\begin{align}
+y_{ics} &= \tilde{\alpha}_0 +\tilde{\alpha}_1\cdot w_{cs} + \tilde{\alpha}_2\cdot  x_i + \tilde{\beta}_1^{'}\cdot  D_{ic} \nonumber \\
+&\quad + \tilde{\beta}_2^{'}\cdot  D_{ic}\cdot a_i+  post_i\cdot \left[ \tilde{\gamma}_2 \cdot a_i + \tilde{\delta}_1^{'}\cdot D_{ic} + \tilde{\delta}_2^{'}\cdot D_{ic}\cdot a_{i}\right] +\eta_{sp}+\nu_{ics}.\tag{$\ref{regression1het}$'} \label{regression1hetprime}
+\end{align}
+
+
+\noindent The models in equations \eqref{regression1prime} and \eqref{regression1hetprime} draw on comparisons across classrooms within the same school and cohort. The fixed effects remove average unobserved school-level changes between the pre- and post-earthquake cohorts; the $\tilde{\delta}$ parameters capture the portion of the damage effects that arises from within-school, across-classroom differences in damages, net of any school-wide responses.\par 
+
+Consistent with the limited variability in mean classroom damages within schools noted in Section \ref{sec:descrptive}, the effects of mean damages are imprecisely estimated and uninformative  (Appendix Table \ref{tab:effectstsfe} and Figure \ref{fig:heteffects_bysimce_fe}). Estimates from equation \eqref{regression1prime} show that the average impacts of peer damage dispersion become smaller in magnitude and statistically undetectable once school-by-cohort fixed effects are included (Appendix Table \ref{tab:effectstsfe}). The point estimates, therefore, are inconsistent with schools mitigating the impacts of damage dispersion, because mitigation would have resulted in stronger negative impacts with the inclusion of the fixed effects, not weaker. Additionally, the impacts with and without the inclusion of fixed effects are statistically indistinguishable: the p-values for equality are 0.413 for test scores and 0.371 for GPA. Therefore, the data provide no statistically significant evidence that schools responded to dispersion in damages, and the point estimates are inconsistent with mitigation in response to dispersion.\par 
+
+
+Figure \ref{fig:heteffects_bysimce_fe} presents the results from the estimation of equation \eqref{regression1hetprime}. The heterogeneous effects pattern remains robust to the inclusion of the fixed effects, as seen by comparing these results to Figure \ref{fig:me_nofe}: a rise in damage dispersion raised the achievement of lower-baseline-test-score students and lowered that of higher-baseline-test-score students, irrespective of the inclusion of the fixed effects. The fixed-effects specification cannot rule out the possibility that schools (or teachers) responded in ways that varied within schools, across classrooms or students, and does not allow us to distinguish such potential responses from other mechanisms operating at the peer level. To shed light on this, the next sections examine mechanisms at the school and classroom level that could generate heterogeneous effects across students.\par 
+
+
+
+\begin{figure}[h!] % 25 from home, 45 from office
+	\centering
+	\includegraphics[scale=0.22]{output/figures/heteffects_ts_GPA_by_simce_fe.png} %0.25
+
+	\caption{Marginal effects on standardized eighth-grade test score and GPA by baseline test score, estimated using school-by-cohort fixed effects. {\itshape Notes}: Marginal effects of leave-one-out average damage among classmates and leave-one-out standard deviation of damage among classmates. Effects obtained from estimating the regression model in equation \eqref{regression1hetprime}. 80\% and 90\% confidence intervals reported.  }
+	\label{fig:heteffects_bysimce_fe}
+\end{figure}
+
+
+
+
+\subsubsection{Classroom instruction}\label{sec:instruction}
+\input{output/tables/med_effects_curriculum_CIs_2025.tex}
+
+
+ The impacts on test scores and GPA were similar (Table \ref{tab:effectsts} and Figure \ref{fig:me_nofe}), indicating that the earthquake did not alter the way knowledge translated into grades. Teachers, therefore, do not appear to have adjusted their grading standards in response to the distribution of earthquake damages among students.\footnote{Across all specifications, the estimated effects of the standard deviation of damages on GPA mirror those on standardized test scores, suggesting teachers did not adjust their grading standards in response to the dispersion of damages. A slight divergence emerges only for the effects of the mean of damages in one robustness specification (Figure \ref{fig:me_nofe_byGPA4}). The theoretical model will allow for school-level responses with respect to average damages (without imposing them), so these patterns are not inconsistent with the theoretical framework I will propose.  } However, teachers may have responded by adjusting their instruction.\par
+
+To examine the impacts on classroom instruction, I use teacher survey data on the fraction of the curriculum covered in class. On average, Language teachers cover $65.8\%$ of the curriculum, and Mathematics teachers $63.1\%$. Table \ref{tab:medeffectcv} shows that the distribution of damages among students in the classroom did not affect these figures. The point estimates of the impacts of the classroom average and standard deviation of damages are close to zero, and these null effects are precisely estimated. The effects of mean damage have 95\% confidence intervals of $\CInofeclpostmeandamage$  for Language and $\CInofecmpostmeandamage$ for Mathematics; the effects of the standard deviation of damages have confidence intervals of $\CInofeclpostsddamage$ for Language and $\CInofecmpostsddamage$ for Mathematics, indicating that we cannot statistically reject only small changes to curriculum coverage.\par 
+The lack of instructional pace adaptation suggests that the mitigating efforts taken by schools in response to the average level of damages among their students did not take the form of teachers slowing down. Moreover, this evidence does not support the notion that in classrooms with higher damage dispersion, teachers reduced the instructional pace to focus on the lower-performing students, which could have explained the positive impact of damage dispersion on the achievement of lower-prior-achievement students and detrimental impact on that of higher-prior-achievement students.\par 
+\input{output/tables/med_effects_curriculum_2025.tex}
+
+
+
+
+
+
+
+
+\subsubsection{Reallocation of school resources}\label{sec:resources}
+
+The positive impacts of mean damages on achievement suggest schools overcompensated earthquake impacts by allocating resources towards activities supporting learning. Additionally, schools may have adjusted in ways that differentially affected students, for example, by reallocating resources towards activities supporting lower-achieving students. Such adjustments could have mediated the heterogeneous effects of damage dispersion. To examine this mechanism, I analyze how the earthquake affected school expenditures. \par
+
+
+I use school expenditure data reported under Chile’s {\itshape Subvenci\'{o}n Escolar Preferencial} (SEP) law, which provides additional funds to schools serving economically vulnerable students. Participating schools must report to the Ministry of Education how these resources are used. I link these reports for 2009 (pre-earthquake) and 2010 (post-earthquake, as the earthquake occurred just before the start of the 2010 school year) to the main dataset.\footnote{The school year in Chile runs from March to December. I do not have access to expenditure data for 2011, the year in which the other outcomes in this study are measured post-earthquake.} Three caveats apply. First, SEP resources represent only part of total school funding. Second, expenditure data are available only for SEP-participating schools. Third, the data exclude any additional emergency funds granted after the earthquake. Nonetheless, the analysis offers insights into how schools may have reallocated resources in response to the shock. \par
+
+Appendix Table \ref{tab:summarymissingexp} reports summary statistics for all schools in the main estimation sample and for those with non-missing expenditure data, representing 42\% of the sample schools. As expected, the latter are more likely to be public and rural and to serve students with lower grade-4 test scores and parental education. There are no differences in earthquake shaking in the schools’ towns (last row). Appendix Table \ref{tab:medeffectexpbal} shows no evidence of selective attrition: the treatment variables (the within-school averages of the classroom-level mean and standard deviation of damages) do not predict missing expenditure data (column 1). Therefore, estimating regression \eqref{regression1} on the school-level dataset, with expenditures as outcomes, provides internally valid estimates of how the damage variables influenced schools' use of SEP resources.\par 
+
+
+
+In the years 2009-2010, SEP funds amounted to around CLP 68.3 billion ($\sim$ USD 134 million in 2010) across all SEP-participating schools. As shown in Appendix Table \ref{tab:expdes}, personnel was the biggest expenditure category (81\%), followed by subcontracted consultancies providing technical and pedagogical support (18\%), and expenditures for unforeseen events and infrastructure projects (less than 1\%). 
+Table \ref{tab:medeffectindiv} reports the main results. First, the standard deviation of classroom damages had no statistically significant effects on SEP spending. The impacts are imprecisely estimated, and confidence intervals include economically meaningful reallocations, so we cannot conclude that the response was null. At the same time, the results provide no statistically strong evidence that schools reallocated resources toward activities aimed at supporting lower-performing students (such as tutoring), which could have explained the heterogeneous impacts of damage dispersion along the baseline test-score distribution.\par 
+
+
+
+
+\input{output/tables/med_effects_exp114}
+Second, schools did adjust their SEP expenditures in response to the average level of damages among their students, and the estimated effects are statistically significant. Panel B (without controls for direct school damage) shows that more affected schools spent more on external, non-ATE, consulting and less on new hiring and miscellaneous expenses.\footnote{ATE ({\itshape Asesor\'{i}a T\'{e}cnica Educativa}) are accredited consultancies that support schools' improvement plans required under the SEP law. }  Because average student damages correlate with school-level damages, Panel A includes controls for damage to school buildings to isolate the response to students’ mean damages. The results suggest that schools reduced new hiring while increasing spending on external consulting services, likely to avoid teaching disruptions and sustain learning. New hires may have been postponed because of the earthquake or deliberately avoided to preserve instructional continuity.\par 
+
+\begin{figure}[h!] %[p]
+ 	\centering
+ 	\includegraphics[scale=0.2]{output/figures/consulting_other_2010_details.png} %0.25
+ 	\caption{Breakdown of ``Fee-based consulting (non-ATE)" and ``Other" expense categories. The y-axis reports the total annual expenditure for each subcategory across all SEP schools in the country in 2010, expressed as a fraction of the total annual expenditure in the broader ``Fee-based consulting (non-ATE)" (left panel) and ``Other" (right panel) categories in these schools. Subcategories were constructed using a text classification of detailed descriptions of individual spending items. Expenditures that could not be specifically categorized due to unclear descriptions are included in the ``Other" subcategory. Within each panel, the ``Compensation" subcategory may encompass expenses related to compensation for personnel listed explicitly in other subcategories, such as assistants, social workers, and support teachers for consulting expenses (left panel) and administrative and IT staff for other expenses (right panel). However, due to limited detail in expenditure descriptions, these compensation costs could not be allocated to more specific subcategories. Data sources: \cite{mineduc_sep_expenditure,tincani_expenditure_categories} \label{fig:LLM}}
+ \end{figure}
+
+
+ To better understand these adjustments, Figure \ref{fig:LLM} decomposes the ``Fee-based consulting (non-ATE)" and ``Other" expenditure categories based on the detailed descriptions of individual spending items reported by schools. The figure suggests that resources were redirected toward assistants, educational and psychological support, and workshops (left panel). In turn, miscellaneous expenses, which were reduced in more affected schools, primarily included compensation, bonuses, and training (right panel).\par 
+ Overall, the evidence suggests that schools responded to the average level of damages by reallocating resources from recruitment costs toward activities directly linked to student support and learning recovery. For damage dispersion, there is no statistically strong evidence that schools adjusted their expenditures in ways that would explain its heterogeneous achievement effects.
+
+
+
+
+\subsection{Student-level factors } 
+\subsubsection{Perceived cost of effort}
+
+Table \ref{tab:medeffectallni} show impacts on potential student-level mediators, using survey data (survey items and variable construction are described in Appendix \ref{sec:surveyeffort}). The first column presents impacts on students' perceptions. A one-standard-deviation increase in damage to a student's home significantly increased their perceived cost of study effort, by around 0.03 standard deviations, up to 22 months post-event. At the same time, their ability to engage with the course material diminished, insignificantly, by 0.01 standard deviations (second column). Potential reasons include logistical disruptions and psychological challenges. The medical literature has reported that earthquake survivors, especially children, are prone to long-lasting Post Traumatic Stress Disorder (PTSD).\footnote{See, for example, \cite{altindag2005one}, \cite{lui2009high}, \cite{giannopoulou2006post}. Children living closer to earthquake epicenters have been found to experience more severe PTSD (\cite{groome2004post}).} In the case of the 2010 Maule earthquake, children living in strongly shaken areas displayed significantly higher PTSD rates compared to similar children in unaffected areas;\footnote{\cite{zubizarreta2013effect} measured PTSD using the self-rated Davidson Trauma Scale, administered 3-4 months post-earthquake, and compared students in similar-quality homes but with varying exposure to shaking.} and adverse impacts on psychological functioning were detected among preschoolers and primary school students.\footnote{See \cite{dutta2022earthquake}, who find impacts up to one year after the earthquake. See also \cite{gomez2017earthquake}.} The results, therefore, are consistent with the notion that post-earthquake trauma affects human capital accumulation in schools.\footnote{Other papers have estimated earthquake impacts on student achievement (e.g. \cite{shidiqi2023earthquake}), but exposure has typically been measured solely through location, abstracting from housing quality conditional on location, which I find to be an important source of inequality.}\par
+Keeping fixed a student's home damage, an increase in the average damage suffered by peers had a negative effect on own effort cost (Table \ref{tab:medeffectallni} column 1). This result aligns with the previous findings on achievement impacts and likely reflects schools' compensatory actions. Keeping fixed a student's home damage, an increase in the damage dispersion in the classroom had a positive effect on own effort cost, suggesting that learning was more difficult in classrooms with larger damage dispersion, consistent with the negative average effect of dispersion on achievement. The impacts on course engagement of the mean and the standard deviation of damages are imprecisely estimated; we cannot rule out null effects.\par 
+  \input{output/tables/med_effects.tex}
+
+
+
+
+
+
+
+\subsubsection{Peer interactions with competitive preferences}\label{sec:rank_concerns}
+
+Schools may not have responded to the dispersion in damages, suggesting a potential role for peer interactions. To better understand these spillovers, I examine whether damage dispersion changed GPA rankings in the classroom. Figure \ref{fig:me_grank_bysimce_nofe} shows that there were no statistically detectable impacts along the baseline test score distribution, which stands in stark contrast to the impacts on GPA. Higher-performing students experienced relatively large drops in GPA, but not in GPA rank. These results are consistent with the notion that students have competitive preferences: they care about their rank in terms of GPA, an achievement measure observable to classmates. Faced with changed study effort costs among their peers, they adjusted their effort and learning, but not at the expense of classroom ranking.  \par 
+
+\begin{figure}[h!] %[p]
+ 	\centering
+ 	\includegraphics[scale=0.15]{output/figures/heteffects_GPAranksd_bysimce.png} %0.2
+ 	\caption{Marginal effects of damage dispersion on within-classroom GPA rank by baseline test score. {\itshape Notes}: GPA rank is the classroom rank, it ranges from 0 (worst GPA) to 1 (top GPA). Marginal effects of the leave-one-out standard deviation of damage among classmates. Effects obtained from estimating the regression model in equation \eqref{regression1het}. 90\% and 80\% confidence intervals reported. Appendix Figure \ref{fig:heteffectsGPArankmean} reports the impacts of average damage. }
+ 	\label{fig:me_grank_bysimce_nofe}
+ \end{figure}
+
+ The idea that students who are around thirteen years old, like those in this study, may care about their rank is consistent with a growing body of evidence. Competitive preferences can emerge early in life and strengthen through adolescence (\cite{sutter2015gender,page2017older}). In schools, several benefits to a higher rank justify why students may value their rank relative to peers. A higher within-school rank in elementary school can improve self-concept (\cite{marsh2007big,zeidner1999big}), bring immediate benefits such as improved executive function, higher happiness, and more favorable teacher perceptions of ability (\cite{carneiro2025effect}), and yield longer-term gains in achievement, self-esteem, educational attainment, and earnings (\cite{murphy2020top,denning2023class,ladant2024essential}). Rank in high school has positive effects on aspirations, future educational attainment, and later-life health and social behaviors (\cite{elsner2017big,elsner2018rank}). These wide-ranging rewards, therefore, suggest that rank concerns could arise in school even when rank is not formally rewarded.\par 
+
+Concerns for rank, in turn, could cause spillovers from peer damages. If disruptions to peers affect their ability to compete by making their effort more costly, they change the competition incentives in the classroom, triggering effort responses. Section 5 formalizes this intuition through a theoretical model.
+
+
+\subsection{Summary}
+
+At the student level, damages appeared to hinder the accumulation of human capital. At the classroom level, there is no evidence of instructional adaptation. At the school level, schools with {\itshape on average} more severely affected students reallocated resources towards student support and learning recovery, consistent with the higher achievement observed in those schools. However, neither expenditure nor instructional data, nor the specifications with school-by-cohort fixed effects, convincingly support the hypothesis that schools responded to how {\itshape dispersed} damages were among their students. There is no statistically strong evidence that larger damage dispersion led schools to reallocate resources or teachers to target instruction towards lower-achieving students. The heterogeneous spillovers from damage dispersion on achievement, therefore, may arise from peer-to-peer interactions rather than institutional responses. The lack of shifts to GPA rank despite shifts to learning suggest peers' concerns for rank may underpin peer-to-peer interactions, an idea consistent with existing evidence on the early onset of competitive preferences and on the benefits of a higher rank in school.\par 
+
