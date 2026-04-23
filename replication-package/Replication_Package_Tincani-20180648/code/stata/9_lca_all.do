@@ -4,6 +4,7 @@
 
 version 15
 
+capture log close
 log using "$root/output/figures/lca_all.log", replace
 * ======================================================
 

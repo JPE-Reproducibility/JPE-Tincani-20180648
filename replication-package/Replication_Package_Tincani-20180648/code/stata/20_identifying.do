@@ -263,7 +263,7 @@ prehead(`"\begin{table}[H]\centering"' ///
 		   label var switch_school "School"
 		   label var switch_classroom "Classroom"
 		   
-		   esttab switch_noc switch_c switch_school_noc switch_school_c switch_class_noc switch_class_c using "$output_tables\effects_on_switches.tex",  append label booktabs b(3) se(3) r2 star(* 0.10 ** 0.05 *** 0.01) ///
+		   esttab switch_noc switch_c switch_school_noc switch_school_c switch_class_noc switch_class_c using "$output_tables/effects_on_switches.tex",  append label booktabs b(3) se(3) r2 star(* 0.10 ** 0.05 *** 0.01) ///
     keep(post_earth ) order(post_earth) ///
 		    scalars("hasc Controls") ///
     nonum collabels(none) fragment nonotes nomtitles nonumber ///
@@ -300,7 +300,7 @@ egen GPA_4_std=std(GPA_4)
    label var post_loo_mean_damage  "Effect of average damage among classmates"
    label var post_loo_sd_damage "Effect of standard deviation of damage among classmates"
    local varlabel : variable label ts 
-    esttab m1_ts m1_GPA   using "$output_tables\main_effects_ts_2025_lagged.tex",  replace label booktabs b(3) se(3)  r2 ///
+    esttab m1_ts m1_GPA   using "$output_tables/main_effects_ts_2025_lagged.tex",  replace label booktabs b(3) se(3)  r2 ///
 	star(* 0.10 ** 0.05 *** 0.01) ///
     keep(post_st_exp post_loo_mean_damage  post_loo_sd_damage  ) order(post_st_exp post_loo_mean_damage  post_loo_sd_damage  ) ///
     mtitles("(1)" "(2)" ) nonum collabels(none) ///

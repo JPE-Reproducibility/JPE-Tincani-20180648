@@ -225,6 +225,7 @@ label var missing_exp "Expenditure data missing"
 gen nonmissing=1 if missing_exp==0
 replace nonmissing=0 if missing_exp==1
 
+capture log close
 log using "$output/in_text_numbers/Section_4_1_3.txt", replace text
 
 /*

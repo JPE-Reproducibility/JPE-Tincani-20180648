@@ -5,8 +5,6 @@ We found the following files larger than 100MB:
 | Filename | Size (MB)  |
 |:---------|----------:|
 | /Replication_Package_Tincani-20180648/confidential-data-not-for-publication/raw/CPA8VO.xlsx | 138.66|
-| /Replication_Package_Tincani-20180648/data/raw/GSHHS_f_L1.shp | 153.85|
-| /Replication_Package_Tincani-20180648/data/raw/CPV2002_Vivienda.csv | 163.89|
 | /Replication_Package_Tincani-20180648/confidential-data-not-for-publication/processed/census_parents_clean_2023.dta | 182.68|
 | /Replication_Package_Tincani-20180648/confidential-data-not-for-publication/processed/census_parents_clean_wclass_all.dta | 203.96|
 | /Replication_Package_Tincani-20180648/confidential-data-not-for-publication/raw/2009 8b bbdd cpadres.csv | 251.71|
@@ -20,5 +18,3 @@ We found the following files larger than 100MB:
 | /Replication_Package_Tincani-20180648/confidential-data-not-for-publication/raw/20130301_Rendimiento_2011_20120416_PUBL.csv | 423.31|
 | /Replication_Package_Tincani-20180648/confidential-data-not-for-publication/processed/data_final_for_regs_all.dta | 480.37|
 | /Replication_Package_Tincani-20180648/confidential-data-not-for-publication/processed/data_final_for_regs_teach_all.dta | 485.77|
-| /Replication_Package_Tincani-20180648/data/raw/20140805_matricula_unica_2009_20090430_PUBL.csv | 499.0|
-| /Replication_Package_Tincani-20180648/data/raw/CPV2002_PERSONA.csv | 1345.61|

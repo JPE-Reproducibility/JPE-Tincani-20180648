@@ -130,7 +130,7 @@ keep if ${proximity} ==0
 
 gen constant = 1
 
-
+capture log close 
 log using "$output_tables/Table_A14_conley.txt", text replace
 
 * Distance 10km

@@ -33,7 +33,7 @@ set linesize 255
 * Automatically detect root directory
 * --- Set root robustly (works in GUI, batch, VS Code) ---
 * Move to the directory containing this do-file (if c(filename) is available)
-capture noisily cd "`=subinstr("`c(filename)'", "/0_Peer_Effects_and_Rank_Concerns.do", "", .)'" 
+* capture noisily cd "`=subinstr("`c(filename)'", "/0_Peer_Effects_and_Rank_Concerns.do", "", .)'" 
 
 * If the above fails (e.g., c(filename) not set), assume user started Stata in root
 * and proceed with current working directory

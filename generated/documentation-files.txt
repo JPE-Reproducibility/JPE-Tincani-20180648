@@ -1,3 +1,6 @@
-/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20180648-1/replication-package/Replication_Package_Tincani-20180648/Manuscript_Replication_Package_Tincani-20180648.pdf
-/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20180648-1/replication-package/Replication_Package_Tincani-20180648/README.pdf
-/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20180648-1/replication-package/Replication_Package_Tincani-20180648/README.md
+/Users/florianoswald/actions-runner/_work/JPE-Tincani-20180648/JPE-Tincani-20180648/replication-package/Replication_Package_Tincani-20180648/data/codebooks/2009 8b doc cpadres.pdf
+/Users/florianoswald/actions-runner/_work/JPE-Tincani-20180648/JPE-Tincani-20180648/replication-package/Replication_Package_Tincani-20180648/data/codebooks/2009 8b doc cprofesor leng.pdf
+/Users/florianoswald/actions-runner/_work/JPE-Tincani-20180648/JPE-Tincani-20180648/replication-package/Replication_Package_Tincani-20180648/data/codebooks/2009 8b doc cprofesor mate.pdf
+/Users/florianoswald/actions-runner/_work/JPE-Tincani-20180648/JPE-Tincani-20180648/replication-package/Replication_Package_Tincani-20180648/data/codebooks/ER Rendimiento por alumno, bases Web.pdf
+/Users/florianoswald/actions-runner/_work/JPE-Tincani-20180648/JPE-Tincani-20180648/replication-package/Replication_Package_Tincani-20180648/data/codebooks/2009 8b libro de codigos.docx
+/Users/florianoswald/actions-runner/_work/JPE-Tincani-20180648/JPE-Tincani-20180648/replication-package/Replication_Package_Tincani-20180648/data/codebooks/codebook_SS_Rendidos.docx

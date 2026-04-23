@@ -133,6 +133,7 @@
 			 
 
 * Numbers in text:
+capture log close
 log using "$output_text/Section_4_1_2.txt", text replace
 /*
 * In-text numbers, section 4.1.2.

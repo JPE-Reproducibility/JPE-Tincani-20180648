@@ -194,7 +194,7 @@ reg ts post_st_exp post_loo_mean_damage post_loo_sd_damage  post $treatment_var_
 	
    * esttab command 
    local varlabel : variable label ts 
-    esttab  ts_c1  ts_c4 GPA_c1 GPA_c4  using "$output_tables\main_effects_ts_GPA_controls_yn.tex",  replace label booktabs b(3) se(3)   r2 ///
+    esttab  ts_c1  ts_c4 GPA_c1 GPA_c4  using "$output_tables/main_effects_ts_GPA_controls_yn.tex",  replace label booktabs b(3) se(3)   r2 ///
 	    scalars("controls Controls") ///
 	star(* 0.10 ** 0.05 *** 0.01) ///
     keep(post_st_exp post_loo_mean_damage  post_loo_sd_damage  ) order(post_st_exp post_loo_mean_damage  post_loo_sd_damage  ) ///
@@ -268,7 +268,7 @@ reg GPA_std post_st_exp post_loo_mean_damage post_loo_sd_damage  post $treatment
 
 	  * esttab command - ts, main body of text
    local varlabel : variable label ts 
-    esttab ts_1p5k   ts_1k ts_0p5k ts_all  GPA_1p5k GPA_1k GPA_0p5k GPA_all  using "$output_tables\main_effects_ts_GPA_tsunami_2025.tex",  replace label booktabs b(3) se(3)   r2 scalars("km Geographic restriction")  ///
+    esttab ts_1p5k   ts_1k ts_0p5k ts_all  GPA_1p5k GPA_1k GPA_0p5k GPA_all  using "$output_tables/main_effects_ts_GPA_tsunami_2025.tex",  replace label booktabs b(3) se(3)   r2 scalars("km Geographic restriction")  ///
 	star(* 0.10 ** 0.05 *** 0.01) ///
     keep(post_st_exp post_loo_mean_damage  post_loo_sd_damage  ) order(post_st_exp post_loo_mean_damage  post_loo_sd_damage  ) ///
     mtitles("(1)" "(2)" "(3)" "(4)" "(5)" "(6)" "(7)" "(8)" ) nonum collabels(none) ///
@@ -410,6 +410,7 @@ est store fe_within
 * Joint covariance of pooled and FE-within estimators
 suest pooled fe_within, vce(cluster rbd_unique)
 
+capture log close 
 log using "$output_text/Section_4_1_1.txt", text replace
 
 * =================================

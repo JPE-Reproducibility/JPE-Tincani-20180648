@@ -45,7 +45,7 @@ use "$cleaned/data_final_for_regs_all", clear
   tab college
  
   
-
+    capture log close 
 	log using "$output_text/Sections_2_3.txt", text replace
 * ======================================
 
@@ -579,7 +579,7 @@ esttab matrix(B_ii) using "`outfile'", append label nogap fragment nonumbers nom
 	graph twoway (lpolyci  st_exp_reconstruction_alu_lca  peduc if M==1 & pre==0 & earth_region==1 & ${proximity}==0 & peduc>=3 & peduc<=17,  acolor(navy) fi(0) alc(navy) alp(dash) ) (lpolyci st_exp_reconstruction_alu_lca peduc if V==1 & pre==0 & earth_region==1  & ${proximity}==0 & peduc>=3 & peduc<=17 , acolor(green) fi(0) alc(green) alp(dash) ) ,  ytitle("Home damage (standardized)") xtitle("Average education of mothers and fathers (years)") legend(position(6) order(2 "Public school" 4 "Private school") region(lstyle(none))) title(" By school type") graphregion(c(white)) xscale(range(3 (2) 17)) xlabel(3(2)17) saving($trash/damages_peduc_by_school_type_2023, replace)
 	graph twoway (lpolyci  st_exp_reconstruction_alu_lca  peduc if rural_rbd==1 & pre==0 & earth_region==1  & ${proximity}==0 & peduc>=3 & peduc<=17,  acolor(navy) fi(0) alc(navy) alp(dash) ) (lpolyci st_exp_reconstruction_alu_lca peduc if rural_rbd==0 & pre==0 & earth_region==1  & ${proximity}==0 & peduc>=3 & peduc<=17, acolor(green) fi(0) alc(green) alp(dash) ) ,  ytitle("Home damage (standardized)") xtitle("Average education of mothers and fathers (years)") legend(position(6)  order(2 "Rural school" 4 "Urban school") region(lstyle(none))) title("By school rurality") graphregion(c(white)) xlabel(3(2)17) saving($trash/damages_peduc_by_school_rurality_2023, replace)	
 	graph combine $trash/damages_peduc_by_school_type_2023.gph  $trash/damages_peduc_by_school_rurality_2023.gph, colf graphregion(color(white)) saving($trash/damages_peduc_2023.gph, replace)
-	graph export "$output_figures\damages_peduc.png", as(png) name("Graph") replace
+	graph export "$output_figures/damages_peduc.png", as(png) name("Graph") replace
 	
 	
 	

@@ -3,8 +3,8 @@
 ⚠️ We found the following instances of potentially personally identifying information. This may be completely legitimate but might be worth checking. *As a reminder, privacy legislation in many countries (e.g. GDPR in EU) prohibits the dissemination of personal identifiable information without prior (and documented) consent of individuals.* If indeed you want to publish such information with your replication package, you should probably have obtained IRB approval for this - please check!
 
 **Summary:**
-- Data files with PII indicators: 14
-- Variables flagged in data: 60
+- Data files with PII indicators: 12
+- Variables flagged in data: 55
 - Code files with PII references: 42
 - PII references in code: 4586
 
@@ -15,13 +15,11 @@
 | Data | `census_parents_clean_2023.dta` | 5 | father, mother, degree, child, school, house |
 | Data | `census_parents_clean_wclass_all.dta` | 5 | father, mother, degree, child, school, house |
 | Data | `census_with_class_type_true_predicted_all.dta` | 5 | father, mother, degree, child, school, house |
-| Data | `comuna_alu_geocoded.csv` | 2 | lat, lon |
 | Data | `comuna_alu_geocoded.dta` | 2 | lat, lon |
 | Data | `data_final_for_regs_all.dta` | 12 | school, father, mother, house, loc |
 | Data | `data_final_for_regs_teach_all.dta` | 12 | school, father, mother, house, loc |
 | Data | `data_for_map_2025_all.csv` | 2 | lat, lon |
 | Data | `donut_graph_construction_types.xlsx` | 1 | census, name |
-| Data | `earthquake_catalog_6.csv` | 3 | lat, lon, loc, location |
 | Data | `eb_map_iv_f.txt` | 1 | name |
 | Data | `post_for_predict_2025.dta` | 4 | gender, father, mother, house |
 | Data | `pre_for_predict_2025.dta` | 4 | gender, father, mother, house |

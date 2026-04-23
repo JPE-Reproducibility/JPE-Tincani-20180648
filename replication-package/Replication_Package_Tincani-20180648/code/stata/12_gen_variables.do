@@ -126,6 +126,7 @@ replace exp_reconstruction_alu_lca=cprA_hat*0.337 + cprB_hat*0.084+cprCD_hat*0.0
 replace exp_reconstruction_alu_lca=cprA_hat*0.69 + cprB_hat*0.337+cprCD_hat*0.053 if intensity_alu_cat==9
 replace exp_reconstruction_alu_lca=0 if earth_region==0 & earth_region_rbd==1 // 0 changes
 
+capture log close
 log using "$output/in_text_numbers/Section_2_1.txt", replace text
 /*
 Footnote 10: students from private unsubsidized schools represent approximately 7% of the student ppulation

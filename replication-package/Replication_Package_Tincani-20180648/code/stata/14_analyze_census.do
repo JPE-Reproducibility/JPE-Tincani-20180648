@@ -18,6 +18,7 @@
 * =====================================================================================
 
 clear all
+capture log close
 log using "$output/in_text_numbers/Section_2_2.txt", replace text
 use "$cleaned/census_parents_clean_2023.dta", clear
 /*

@@ -1,6 +1,6 @@
 ## Appendix: Detailed PII Detection Results
 
-*Generated on 2026-04-07 10:20:27*
+*Generated on 2026-04-23 16:06:43*
 
 This appendix lists all detected instances of potential personally identifiable information (PII) in the project files. Each entry shows the matched PII terms and, for data files, sample values to help verify whether the flagged content is indeed sensitive.
 
@@ -205,27 +205,6 @@ This appendix lists all detected instances of potential personally identifiable 
   - Matched terms: lon
   - Sample values: -70.152465, -70.100916, -69.786137
 
-**/replication-package/Replication_Package_Tincani-20180648/data/raw/comuna_alu_geocoded.csv**
-
-- Variable: `latitude_alu`
-  - Matched terms: lat
-  - Sample values: -20.214066, -20.270048, -20.259706
-- Variable: `longitude_alu`
-  - Matched terms: lon
-  - Sample values: -70.152465, -70.100916, -69.786137
-
-**/replication-package/Replication_Package_Tincani-20180648/data/raw/earthquake_catalog_6.csv**
-
-- Variable: `latitude`
-  - Matched terms: lat
-  - Sample values: 0.0054, 31.0643, -32.7244
-- Variable: `locationSource`
-  - Matched terms: loc, location
-  - Sample values: us, nc, ak
-- Variable: `longitude`
-  - Matched terms: lon
-  - Sample values: 119.7709, -8.3907, -179.3069
-
 ### Code Files
 
 **/replication-package/Replication_Package_Tincani-20180648/code/R/plot_histogram_earthquakes.R**
@@ -329,7 +308,7 @@ This appendix lists all detected instances of potential personally identifiable 
   ```
 - Line 36: name
   ```
-  capture noisily cd "`=subinstr("`c(filename)'", "/0_Peer_Effects_and_Rank_Concerns.do", "", .)'"
+  * capture noisily cd "`=subinstr("`c(filename)'", "/0_Peer_Effects_and_Rank_Concerns.do", "", .)'"
   ```
 - Line 38: name
   ```
@@ -588,351 +567,351 @@ This appendix lists all detected instances of potential personally identifiable 
   ```
   Calculate expected damages:
   ```
-- Line 133: school
+- Line 134: school
   ```
   * variable U identifies students enrolled in private unsubsidized schools
-  ```
-- Line 152: loc
-  ```
-  gen relocated_student=1 if _merge==3
   ```
 - Line 153: loc
   ```
+  gen relocated_student=1 if _merge==3
+  ```
+- Line 154: loc
+  ```
   replace relocated_student=0 if _merge==1
   ```
-- Line 161: loc
+- Line 162: loc
   ```
   tab relocated_student
   ```
-- Line 165: loc
+- Line 166: loc
   ```
   drop relocated_student
   ```
-- Line 184: school
+- Line 185: school
   ```
   * normalise damages among all students who are in schools that are in earthquake regions
   ```
-- Line 205: school
+- Line 206: school
   ```
   gen same_town_school=1 if cod_com_alu ==cod_com_rbd
   ```
-- Line 206: school
+- Line 207: school
   ```
   replace same_town_school=0 if cod_com_alu!=cod_com_rbd
   ```
-- Line 211: school
+- Line 212: school
   ```
   label var M "Public school"
   ```
-- Line 216: school
+- Line 217: school
   ```
   label var same_town_school "Student resides in same town as school's"
   ```
-- Line 266: lat
+- Line 267: lat
   ```
   ** generate intensity categories, to be used to calculate damage.
   ```
-- Line 308: name
+- Line 309: name
   ```
   * Rename variables as in damage ratio formula
   ```
-- Line 309: dob
+- Line 310: dob
   ```
   *  high  vulnerability  cat A (adobe)
   ```
-- Line 310: son
+- Line 311: son
   ```
   *  low vulnerability -- C or D (reinforced masonry)
   ```
-- Line 311: son
+- Line 312: son
   ```
   *  medium vulnerability cat B (unreinforced masonry)
   ```
-- Line 313: name
+- Line 314: name
   ```
   rename cpr_high_hat cprA_hat
   ```
-- Line 314: name
+- Line 315: name
   ```
   rename cpr_low_hat cprCD_hat
   ```
-- Line 315: name
+- Line 316: name
   ```
   rename cpr_medium_hat  cprB_hat
   ```
-- Line 328: lat
+- Line 329: lat
   ```
   Calculate expected damages:
   ```
-- Line 348: school
+- Line 349: school
   ```
   * variable U identifies students enrolled in private unsubsidized schools
   ```
-- Line 364: loc
+- Line 365: loc
   ```
   gen relocated_student=1 if _merge==3
   ```
-- Line 365: loc
+- Line 366: loc
   ```
   replace relocated_student=0 if _merge==1
   ```
-- Line 373: loc
+- Line 374: loc
   ```
   tab relocated_student
   ```
-- Line 386: loc
+- Line 387: loc
   ```
   drop relocated_student
   ```
-- Line 425: school
+- Line 426: school
   ```
   gen same_town_school=1 if cod_com_alu ==cod_com_rbd
   ```
-- Line 426: school
+- Line 427: school
   ```
   replace same_town_school=0 if cod_com_alu!=cod_com_rbd
   ```
-- Line 431: school
+- Line 432: school
   ```
   label var M "Public school"
   ```
-- Line 436: school
+- Line 437: school
   ```
   label var same_town_school "Student resides in same town as school's"
   ```
-- Line 483: school
+- Line 484: school
   ```
   bysort post rbd codigo: egen mean_same_town=mean(same_town_school)
   ```
-- Line 500: lon
+- Line 501: lon
   ```
   *** [following takes long time to run]
   ```
-- Line 505: school
+- Line 506: school
   ```
   bysort post rbd codigo: egen cov_dam_same_town=corr(st_exp_reconstruction_alu_lca same_town_school),
   ```
-- Line 510: school
+- Line 511: school
   ```
   bysort post rbd codigo: egen cov_simce_same_town = corr(simce_avg_st same_town_school ), covariance
   ```
-- Line 512: school
+- Line 513: school
   ```
   bysort post rbd codigo: egen cov_peduc_same_town = corr(peduc same_town_school), covariance
   ```
-- Line 513: school
+- Line 514: school
   ```
   bysort post rbd codigo: egen cov_female_same_town = corr(female_r same_town_school), covariance
   ```
-- Line 516: lon
+- Line 517: lon
   ```
   *** [end of part taking long time]
   ```
-- Line 521: school
+- Line 522: school
   ```
   label var rural_rbd "Rural school"
   ```
-- Line 534: name
+- Line 535: name
   ```
   rename distance_asperity distance_asperity_rbd
   ```
-- Line 535: school
+- Line 536: school
   ```
   save "$trash/school_distance_asperity", replace
   ```
-- Line 557: school
+- Line 558: school
   ```
   label var intensity_rbd "Intensity of shaking in school's town'"
   ```
-- Line 564: name
+- Line 565: name
   ```
   rename hugo avg_simce_8_std
   ```
-- Line 583: loc, school
+- Line 584: loc, school
   ```
   label var earth_region_rbd "School is located in earthquake region"
   ```
-- Line 586: dob
+- Line 587: dob
   ```
   * High vulnerability   -- cat A (adobe)
   ```
-- Line 587: son
+- Line 588: son
   ```
   * Medium vulnerability -- cat B (unreinforced masonry)
   ```
-- Line 588: son
+- Line 589: son
   ```
   * Low vulnerability    -- C or D (reinforced masonry)
   ```
-- Line 629: lat
+- Line 630: lat
   ```
   * Standardize in the population
   ```
-- Line 632: school
+- Line 633: school
   ```
   gen rbd_unique=rbd+post*100000  // for FE and clustering at the school-by-cohort level
   ```
-- Line 638: lat
+- Line 639: lat
   ```
   * Step 1: Calculate the total sum of damage for each classroom
   ```
-- Line 641: lat
+- Line 642: lat
   ```
   * Step 2: Calculate the total number of students in each classroom
   ```
-- Line 644: lat
+- Line 645: lat
   ```
   * Step 3: Calculate the sum of damage for each student by subtracting their own damage
   ```
-- Line 647: lat
+- Line 648: lat
   ```
   * Step 4: Calculate the number of students excluding oneself
   ```
-- Line 650: lat
+- Line 651: lat
   ```
   * Step 5: Calculate the leave-one-out mean
   ```
-- Line 658: lat
+- Line 659: lat
   ```
   * Calculate squared difference between each student's damage and the leave-one-out mean
   ```
-- Line 661: lat
+- Line 662: lat
   ```
   * Calculate the total of these squared differences for each classroom
   ```
-- Line 676: lon
+- Line 677: lon
   ```
   * Build covariance terms  - take long time to run
   ```
-- Line 771: lat
+- Line 772: lat
   ```
   * Step 1: Calculate the total sum of damage for each classroom
   ```
-- Line 774: lat
+- Line 775: lat
   ```
   * Step 2: Calculate the total number of students in each classroom
   ```
-- Line 777: lat
+- Line 778: lat
   ```
   * Step 3: Calculate the sum of damage for each student by subtracting their own damage
   ```
-- Line 780: lat
+- Line 781: lat
   ```
   * Step 4: Calculate the number of students excluding oneself
   ```
-- Line 783: lat
+- Line 784: lat
   ```
   * Step 5: Calculate the leave-one-out mean
   ```
-- Line 791: lat
+- Line 792: lat
   ```
   * Calculate squared difference between each student's damage and the leave-one-out mean
   ```
-- Line 794: lat
+- Line 795: lat
   ```
   * Calculate the total of these squared differences for each classroom
   ```
-- Line 814: lat
+- Line 815: lat
   ```
   * Step 1: Calculate the total sum of damage for each classroom
   ```
-- Line 817: lat
+- Line 818: lat
   ```
   * Step 2: Calculate the total number of students in each classroom
   ```
-- Line 820: lat
+- Line 821: lat
   ```
   * Step 3: Calculate the sum of damage for each student by subtracting their own damage
   ```
-- Line 823: lat
+- Line 824: lat
   ```
   * Step 4: Calculate the number of students excluding oneself
   ```
-- Line 826: lat
+- Line 827: lat
   ```
   * Step 5: Calculate the leave-one-out mean
   ```
-- Line 834: lat
+- Line 835: lat
   ```
   * Calculate squared difference between each student's damage and the leave-one-out mean
   ```
-- Line 837: lat
+- Line 838: lat
   ```
   * Calculate the total of these squared differences for each classroom
   ```
-- Line 875: lat
+- Line 876: lat
   ```
   * Step 1: Calculate the total sum of damage for each classroom
   ```
-- Line 878: lat
+- Line 879: lat
   ```
   * Step 2: Calculate the total number of students in each classroom
   ```
-- Line 881: lat
+- Line 882: lat
   ```
   * Step 3: Calculate the sum of damage for each student by subtracting their own damage
   ```
-- Line 884: lat
+- Line 885: lat
   ```
   * Step 4: Calculate the number of students excluding oneself
   ```
-- Line 887: lat
+- Line 888: lat
   ```
   * Step 5: Calculate the leave-one-out mean
   ```
-- Line 895: lat
+- Line 896: lat
   ```
   * Calculate squared difference between each student's damage and the leave-one-out mean
   ```
-- Line 898: lat
+- Line 899: lat
   ```
   * Calculate the total of these squared differences for each classroom
   ```
-- Line 924: lat
+- Line 925: lat
   ```
   * Calculate leave-one-out totals
   ```
-- Line 929: lat
+- Line 930: lat
   ```
   * Calculate leave-one-out means
   ```
-- Line 933: lat
+- Line 934: lat
   ```
   * Calculate leave-one-out covariance
   ```
-- Line 997: name
+- Line 998: name
   ```
   rename norm_rank_GPA rank_GPA
   ```
-- Line 1054: school
+- Line 1055: school
   ```
   Section 2.1: ``The full constructed dataset consists of 354,133 students in 13,268 classrooms across
   ```
-- Line 1058: school
+- Line 1059: school
   ```
   * School identifier: rbd
   ```
-- Line 1066: school
+- Line 1067: school
   ```
   bysort post rbd: gen school_identifier=1 if _n== 1
   ```
-- Line 1067: school
+- Line 1068: school
   ```
   sum mrun class_identifier school_identifier
   ```
-- Line 1070: loc, school
+- Line 1071: loc, school
   ```
   Section 2.1: around 15% of observations, corresponding to schools located in coastal towns
   ```
-- Line 1071: loc
+- Line 1072: loc
   ```
   Variable coastal_1k identifies students in coastal towns, defined as those located within 1 km of th
   ```
-- Line 1077: school
+- Line 1078: school
   ```
   drop class_identifier school_identifier
   ```
-- Line 1084: school
+- Line 1085: school
   ```
   capture noisily erase "$trash/school_distance_asperity.dta"
   ```
@@ -1022,143 +1001,143 @@ This appendix lists all detected instances of potential personally identifiable 
   ```
   * of households with at least one school-aged child (nearly 1 million observations)
   ```
-- Line 22: census
+- Line 23: census
   ```
   use "$cleaned/census_parents_clean_2023.dta", clear
   ```
-- Line 24: child, house, lat, school
+- Line 25: child, house, lat, school
   ```
   Size of the population of households with at least one school-aged child, as reported in
   ```
-- Line 25: house
+- Line 26: house
   ```
   the introduction ("nearly one million") and in the notes to Figures 3, 4, 5 and A2 (929,647 househol
   ```
-- Line 33: lat
+- Line 34: lat
   ```
   ** Generate descriptive stats of the distribution of building materials in the population (Appendix 
   ```
-- Line 51: lat, name
+- Line 52: lat, name
   ```
   * Build LaTeX table with material names
   ```
-- Line 54: loc
+- Line 55: loc
   ```
   local outtex "$output_tables/distrib_materials.tex"
   ```
-- Line 55: name
+- Line 56: name
   ```
   tempname fout
   ```
-- Line 58: lat
+- Line 59: lat
   ```
   *---- LaTeX header
   ```
-- Line 73: name
+- Line 74: name
   ```
   syntax varname(numeric) , SECTION(string) MAP(string) OUT(name)
   ```
-- Line 84: name
+- Line 85: name
   ```
   rename `varlist' code
   ```
-- Line 93: loc, name
+- Line 94: loc, name
   ```
   local nm = name[`i']
   ```
-- Line 95: lat
+- Line 96: lat
   ```
   * Escape a few LaTeX special chars (expand if needed)
   ```
-- Line 96: loc
+- Line 97: loc
   ```
   local nm : subinstr local nm "&" "\&", all
   ```
-- Line 97: loc
+- Line 98: loc
   ```
   local nm : subinstr local nm "%" "\%", all
   ```
-- Line 98: loc
+- Line 99: loc
   ```
   local nm : subinstr local nm "_" "\_", all
   ```
-- Line 99: loc
+- Line 100: loc
   ```
   local nm : subinstr local nm "#" "\#", all
   ```
-- Line 102: loc
+- Line 103: loc
   ```
   local fstr : display %12.0f Freq[`i']
   ```
-- Line 103: loc
+- Line 104: loc
   ```
   local pstr : display %6.2f  Percent[`i']
   ```
-- Line 122: name
+- Line 123: name
   ```
   input code str80 name
   ```
-- Line 128: dob
+- Line 129: dob
   ```
   6 "Adobe, soggy mud"
   ```
-- Line 137: name
+- Line 138: name
   ```
   input code str80 name
   ```
-- Line 142: lat
+- Line 143: lat
   ```
   5 "Slate"
   ```
-- Line 154: name
+- Line 155: name
   ```
   input code str80 name
   ```
-- Line 176: lat
+- Line 177: lat
   ```
   *---- LaTeX footer
   ```
-- Line 178: census, child, house, lat, school
+- Line 179: census, child, house, lat, school
   ```
   file write `fout' "\caption{Distribution of building materials in the population of households with 
   ```
-- Line 197: census
+- Line 198: census
   ```
   use "$cleaned/census_with_class_type_true_predicted_all.dta"
   ```
-- Line 200: father, lon, mother
+- Line 201: father, lon, mother
   ```
   graph twoway (lpoly  cpr_low   peduc,   acolor(blue) ) (lpoly cpr_medium peduc  , acolor(green) lpat
   ```
-- Line 207: father, mother
+- Line 208: father, mother
   ```
   graph twoway (lpoly  cpr_high   peduc,   acolor(blue) ) (lpoly cpr_high_hat peduc  , lcolor(green) l
   ```
-- Line 208: father, mother
+- Line 209: father, mother
   ```
   graph twoway (lpoly  cpr_medium   peduc,   acolor(blue) ) (lpoly cpr_medium_hat peduc  , lcolor(gree
   ```
-- Line 209: father, mother
+- Line 210: father, mother
   ```
   graph twoway (lpoly   cpr_low   peduc,   acolor(blue) ) (lpoly cpr_low_hat peduc  , lcolor(green) lp
   ```
-- Line 213: house
+- Line 214: house
   ```
   graph twoway (lpoly  cpr_high   age_hh_head,   acolor(blue) ) (lpoly cpr_high_hat age_hh_head  , lco
   ```
-- Line 214: house
+- Line 215: house
   ```
   graph twoway (lpoly  cpr_medium  age_hh_head,   acolor(blue) ) (lpoly cpr_medium_hat age_hh_head  , 
   ```
-- Line 215: house
+- Line 216: house
   ```
   graph twoway (lpoly   cpr_low   age_hh_head,   acolor(blue) ) (lpoly cpr_low_hat age_hh_head  , lcol
   ```
-- Line 232: lon
+- Line 233: lon
   ```
   * Erase data file no longer needed - toggle one once replication package ready
   ```
-- Line 233: census
+- Line 234: census
   ```
   * capture noisily erase "$data/cleaned/census_parents_clean_2023.dta"
   ```
@@ -1583,7 +1562,7 @@ This appendix lists all detected instances of potential personally identifiable 
   ```
 - Line 582: name
   ```
-  graph export "$output_figures\damages_peduc.png", as(png) name("Graph") replace
+  graph export "$output_figures/damages_peduc.png", as(png) name("Graph") replace
   ```
 - Line 588: lat
   ```
@@ -1732,15 +1711,15 @@ This appendix lists all detected instances of potential personally identifiable 
   ```
   * FE-equivalent regression (within-school)
   ```
-- Line 452: school
+- Line 453: school
   ```
   global controls_indiv_nodamdet_tilde2 = "simce_avg_st_tilde2 female_r_tilde2 same_town_school_tilde2
   ```
-- Line 459: school
+- Line 460: school
   ```
   * FE-equivalent regression (within-school)
   ```
-- Line 466: name
+- Line 467: name
   ```
   * Look at names of equations and coefficients
   ```
@@ -1982,43 +1961,43 @@ This appendix lists all detected instances of potential personally identifiable 
   ```
   // Write a LaTeX macro to use in the text body
   ```
-- Line 170: school
+- Line 171: school
   ```
   bysort post rbd: gen school_index=1 if _n==1
   ```
-- Line 173: name
+- Line 174: name
   ```
   * Rename outcome variables for eststo to work
   ```
-- Line 174: name
+- Line 175: name
   ```
   rename simce_math_std ts_math
   ```
-- Line 175: name
+- Line 176: name
   ```
   rename simce_span_std ts_span
   ```
-- Line 212: loc
+- Line 213: loc
   ```
   local varlabeleffortc : variable label effort_cost_std
   ```
-- Line 213: loc
+- Line 214: loc
   ```
   local varlabelengage : variable label engagement_std
   ```
-- Line 264: name
+- Line 265: name
   ```
   rename (_ci_lb _ci_ub) (ci_lb90 ci_ub90)
   ```
-- Line 270: name
+- Line 271: name
   ```
   rename (_ci_lb _ci_ub) (ci_lb80 ci_ub80)
   ```
-- Line 310: name
+- Line 311: name
   ```
   rename (_ci_lb _ci_ub) (ci_lb90 ci_ub90)
   ```
-- Line 316: name
+- Line 317: name
   ```
   rename (_ci_lb _ci_ub) (ci_lb80 ci_ub80)
   ```
@@ -2085,167 +2064,167 @@ This appendix lists all detected instances of potential personally identifiable 
   ```
   * in this school sd simce cannot be calcualated and therefore it is
   ```
-- Line 232: school
+- Line 233: school
   ```
   "representing 42\% of the sample schools."
   ```
-- Line 238: school
+- Line 239: school
   ```
   sum nonmissing  if post==0 & earth_region_rbd==1 & school_index==1 & ${proximity_rbd}==0
   ```
-- Line 254: school
+- Line 255: school
   ```
   reg missing_exp post_mean_damage post_sd_damage post mean_damage_rbd sd_damage_rbd if earth_region_r
   ```
-- Line 255: school
+- Line 256: school
   ```
   su missing_exp if post==0 & earth_region_rbd==1 & school_index==1 & ${proximity_rbd}==0
   ```
-- Line 280: loc
+- Line 281: loc
   ```
   local variables class_size_rbd M rural_rbd mean_simce_avg_st_rbd mean_peduc_rbd sd_simce_avg_st_rbd 
   ```
-- Line 291: loc
+- Line 292: loc
   ```
   label var mean_same_town_rbd "Fraction local residents"
   ```
-- Line 294: school
+- Line 295: school
   ```
   quietly reg missing_exp post_mean_damage post_sd_damage post mean_damage_rbd sd_damage_rbd if earth_
   ```
-- Line 296: loc
+- Line 297: loc
   ```
   local k=1
   ```
-- Line 298: school
+- Line 299: school
   ```
   quietly summarize `var' if earth_region_rbd==1 & school_index==1 & ${proximity_rbd}==0 & e(sample)==
   ```
-- Line 299: loc
+- Line 300: loc
   ```
   local mean  = string(r(mean), "%9.2f")
   ```
-- Line 300: loc
+- Line 301: loc
   ```
   local sd    = string(r(sd), "%9.2f")
   ```
-- Line 301: loc
+- Line 302: loc
   ```
   local N     = string(r(N), "%9.0f")
   ```
-- Line 303: school
+- Line 304: school
   ```
   quietly summarize `var' if earth_region_rbd==1 & school_index==1 & ${proximity_rbd}==0 & missing_exp
   ```
-- Line 304: loc
+- Line 305: loc
   ```
   local meanT = string(r(mean), "%9.2f")
   ```
-- Line 305: loc
+- Line 306: loc
   ```
   local sdT   = string(r(sd), "%9.2f")
   ```
-- Line 306: loc
+- Line 307: loc
   ```
   local NT    = string(r(N), "%9.0f")
   ```
-- Line 314: loc
+- Line 315: loc
   ```
   local k=`k'+1
   ```
-- Line 317: name
+- Line 318: name
   ```
   matrix rownames A = `variables'
   ```
-- Line 318: lname, name
+- Line 319: lname, name
   ```
   matrix colnames A = Mean SD N Mean SD N
   ```
-- Line 323: school
+- Line 324: school
   ```
   `"\caption{\label{summarymissingexp} Summary statistics of school characteristics.}"' ///
   ```
-- Line 326: school
+- Line 327: school
   ```
   `"      &  \multicolumn{3}{c}{\textsc{All }} &  \multicolumn{3}{c}{\textsc{Schools with non-missing}
   ```
-- Line 327: school
+- Line 328: school
   ```
   `"      &  \multicolumn{3}{c}{\textsc{ schools}} &  \multicolumn{3}{c}{\textsc{ expenditure data}}  
   ```
-- Line 356: school
+- Line 357: school
   ```
   * Panel A: with school damage controls
   ```
-- Line 359: school
+- Line 360: school
   ```
   reg `var' post_mean_damage post_sd_damage post mean_damage_rbd sd_damage_rbd $controls_rbd $intensit
   ```
-- Line 363: loc
+- Line 364: loc
   ```
   estadd local hasfe "No"
   ```
-- Line 374: school
+- Line 375: school
   ```
   `"\caption{Impacts of earthquake damages on category-specific school expenditures}"' ///
   ```
-- Line 378: school
+- Line 379: school
   ```
   `"& \multicolumn{9}{c}{\textbf{A. With school damage controls}}  \\ "') ///
   ```
-- Line 381: school
+- Line 382: school
   ```
   * Panel B: without school damage controls
   ```
-- Line 385: school
+- Line 386: school
   ```
   reg `var' post_mean_damage post_sd_damage post mean_damage_rbd sd_damage_rbd $controls_rbd if earth_
   ```
-- Line 389: loc
+- Line 390: loc
   ```
   estadd local hasfe "No"
   ```
-- Line 396: school
+- Line 397: school
   ```
   prehead(`"& \multicolumn{9}{c}{\textbf{B. Without school damage controls}}  \\ "') ///
   ```
-- Line 426: loc
+- Line 427: loc
   ```
   levelsof sort_order, local(levels)
   ```
-- Line 427: loc
+- Line 428: loc
   ```
   foreach lvl of local levels {
-  ```
-- Line 428: loc, name
-  ```
-  quietly levelsof category if sort_order == `lvl', clean local(catname)
   ```
 - Line 429: loc, name
   ```
+  quietly levelsof category if sort_order == `lvl', clean local(catname)
+  ```
+- Line 430: loc, name
+  ```
   local catname = subinstr(`"`catname'"', `"""', "", .)
   ```
-- Line 430: name
+- Line 431: name
   ```
   label define cat_label `lvl' "`catname'", add
   ```
-- Line 463: loc
+- Line 464: loc
   ```
   levelsof sort_order, local(levels)
   ```
-- Line 464: loc
+- Line 465: loc
   ```
   foreach lvl of local levels {
   ```
-- Line 465: loc, name
+- Line 466: loc, name
   ```
   quietly levelsof category if sort_order == `lvl', clean local(catname)
   ```
-- Line 466: loc, name
+- Line 467: loc, name
   ```
   local catname = subinstr(`"`catname'"', `"""', "", .)
   ```
-- Line 467: name
+- Line 468: name
   ```
   label define cat_label `lvl' "`catname'", add
   ```
@@ -3267,31 +3246,31 @@ This appendix lists all detected instances of potential personally identifiable 
 
 **/replication-package/Replication_Package_Tincani-20180648/code/stata/9_lca_all.do**
 
-- Line 23: name
+- Line 24: name
   ```
   NM  = st_sdata(., "name")
   ```
-- Line 29: census
+- Line 30: census
   ```
   use "$cleaned/census_parents_clean_2023.dta", clear
   ```
-- Line 37: name
+- Line 38: name
   ```
   S = st_matrixcolstripe("e(b)")   // S[.,1]=eq, S[.,2]=name
   ```
-- Line 56: census
+- Line 57: census
   ```
   use "$cleaned/census_parents_clean_2023.dta", clear
   ```
-- Line 70: loc
+- Line 71: loc
   ```
   levelsof `v', local(vals)
   ```
-- Line 73: loc
+- Line 74: loc
   ```
   foreach c of local vals {
   ```
-- Line 86: census
+- Line 87: census
   ```
   save "$cleaned/census_parents_clean_wclass_all.dta", replace
   ```
