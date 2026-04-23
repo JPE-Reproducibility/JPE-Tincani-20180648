@@ -43,7 +43,7 @@ jobs:
       - name: Read variables from YAML
         run: |
           echo "=== Configuration ==="
-          julia -e '
+          julia --project=$JULIA_RUNNER_ENV -e '
             using YAML
             vars = YAML.load_file("_variables.yml")
             for (k,v) in vars
